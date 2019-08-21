@@ -1,0 +1,10 @@
+.header{
+  display: block;
+}
+
+.shoes{
+  background-image: url('./images/shoes.png');
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+}
