@@ -1,10 +1,27 @@
 .header{
   display: block;
+  background-color: black;
+  color: white;
+  position: relative;
+}
+
+.cart{
+  background-image: url('./images/CART.png');
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100;
+  display: inline-block;
+  left: 10%;
+  position: absolute;
 }
 
 .shoes{
-  background-image: url('./images/shoes.png');
+  background-image: url('./');
   background-size: contain;
   height: 100%;
   width: 100%;
+}
+
+.clean{
+  display: inline-block;
 }
