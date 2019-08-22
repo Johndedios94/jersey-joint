@@ -15,5 +15,4 @@ print($output);
 // } else {
 //   readfile('dummy-product-details.json');
 // }
-
 ?>
