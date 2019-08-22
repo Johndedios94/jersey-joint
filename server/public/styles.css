@@ -1,0 +1,25 @@
+
+.headerbg{
+  background-color: grey;
+  display: block;
+}
+
+.header{
+  display: inline-block;
+  background-color: none;
+  color: black;
+  position: relative;
+  text-decoration: underline;
+}
+
+
+.cart{
+  background-image: url('./images/CART.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  vertical-align: top
+
+}
