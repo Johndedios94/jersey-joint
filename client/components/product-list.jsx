@@ -14,6 +14,7 @@ class ProductList extends React.Component {
     fetch('/api/products.php')
       .then(response => { return response.json(); })
       .then(data => {
+        console.log('data', data);
         this.setState({ products: data });
       });
 
