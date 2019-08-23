@@ -2,7 +2,7 @@ import React from 'react';
 
 function ProductListItem(props) {
   return (
-    <div className="card" style={{ width: '18rem' }}>
+    <div onClick={console.log('ShakeWeight')}className="card" style={{ width: '18rem' }}>
       <img src={props.image} className="card-img-top" alt="..."/>
       <div className="card-body">
         <h5 className="card-title">{props.name}</h5>
