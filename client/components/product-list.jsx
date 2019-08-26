@@ -28,15 +28,18 @@ class ProductList extends React.Component {
           name={key.name}
           price={key.price}
           image={key.image}
-          description={key.shortDescription}
+          shortDescription={key.shortDescription}
+          longDescription={key.longDescription}
+          setView={this.props.setView}
         />
       );
     });
     return (
-      <div className="row">
-        {product}
-      </div>
-    );
+      <div className="container" >
+        <div className="row">
+          {product}
+        </div>
+      </div>);
   }
 }
 
