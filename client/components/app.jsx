@@ -32,7 +32,7 @@ export default class App extends React.Component {
     })
       .then(response => response.json())
       .then(json => {
-        var newCart = this.state.cart;
+        var newCart = this.state.cart.slice(0);
         newCart.push(json);
         this.setState({ cart: newCart });
       });
