@@ -21,14 +21,14 @@ class ProductDetails extends React.Component {
   render() {
     if (this.state.product) {
       return (
-        <div className="col-md-5">
+        <div className="col-md-4">
           <div className="info-window d-flex justify-content-center" style={{ 'width': '100vw' }}>
             <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-5" >{'Back to catalog'}</div>
 
             <img className="mt-5 ml-5" style={{ 'height': '40vh', 'width': '40vw' }} src={this.state.product.image} alt="Bad Image" />
             <div className="ml-5" style={{ 'width': '10vw' }}>
               <h5 className="mt-5">{this.state.product.name}</h5>
-              <button onClick={() => { this.props.addToCart('product'); }}>Add to Cart</button>
+              <button onClick={() => { this.props.addToCart(this.state.product); }} >Add to Cart</button>
               <p className="mt-5 text-secondary">$ {((this.state.product.price) / 100).toFixed(2)}</p>
               <p className="mt-5">{this.state.product.shortDescription}</p>
             </div>
