@@ -20,16 +20,15 @@ class ProductList extends React.Component {
   }
 
   render() {
-    const product = this.state.products.map(key => {
+    const product = this.state.products.map(item => {
       return (
         <ProductListItem
-          key={key}
-          id={key.id}
-          name={key.name}
-          price={key.price}
-          image={key.image}
-          shortDescription={key.shortDescription}
-          longDescription={key.longDescription}
+          key={item.id}
+          name={item.name}
+          price={item.price}
+          image={item.image}
+          shortDescription={item.shortDescription}
+          longDescription={item.longDescription}
           setView={this.props.setView}
         />
       );
