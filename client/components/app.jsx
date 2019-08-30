@@ -24,11 +24,10 @@ export default class App extends React.Component {
   componentDidMount() {
     this.getCartItems();
   }
-  placeOrder(order) {
-    var orderedItems = order;
+  placeOrder(orderObj) {
     fetch('/api/orders.php', {
       method: 'POST',
-      body: JSON.stringify(orderedItems),
+      body: JSON.stringify(orderObj),
       headers: {
         'Content-Type': 'application/json'
       }

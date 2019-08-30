@@ -9,6 +9,7 @@ class Checkoutform extends React.Component {
       address: ''
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   totalprice() {
     var total = 0;
@@ -19,7 +20,6 @@ class Checkoutform extends React.Component {
     return cartTotal;
   }
   handleChange(event) {
-    event.preventDefault();
     if (event.currentTarget.id === 'name') {
       this.setState({ name: event.target.value });
     } else if (event.currentTarget.id === 'creditcard') {
@@ -29,19 +29,23 @@ class Checkoutform extends React.Component {
     }
   }
 
+  handleSubmit() {
+    event.preventDefault();
+    var orderObj = {
+      name: this.state.name,
+      creditcard: this.state.creditcard,
+      address: this.state.creditcard,
+      cart: this.props.cartItems
+    };
+    this.props.placeOrder(orderObj);
+  }
+
   render() {
     return (
       <>
         <div className="mx-auto col-5" style={{ 'width': '80vw' }}>
           <h5>Item total ${this.totalprice()}</h5>
-          <form onSubmit={() => {
-            this.props.placeOrder({
-              name: this.state.name,
-              creditcard: this.state.creditcard,
-              address: this.state.creditcard,
-              cart: this.props.cartItems
-            });
-          }}>
+          <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label htmlFor="exampleInputEmail1">Name</label>
               <input type="name" className="form-control form" id="name" placeholder="Enter Name" onChange={this.handleChange}/>
