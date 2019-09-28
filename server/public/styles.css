@@ -1,41 +1,61 @@
 
-.headerbg{
-  background-color: grey;
-  display: block;
+.mainHeader{
+  display: flex;
+  border-bottom: 3px solid black;
+  border-top: 3px solid black;
+  /* justify-content: space-around; */
+  flex-direction: row;
 }
 
-.header{
-  display: inline-block;
-  background-color: none;
+.headerText{
   color: black;
-  position: relative;
+  font-size: 2em;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  flex: 9;
+}
+
+.jumbotron{
+  background-image: url("./images/basketball-147657_1280.png");
+  background-position: right 0px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 70vh;
+  margin: 0px;
+}
+
+.jumbotronText{
+  font-family: Brush Script MT, Brush Script Std, cursive;
   text-decoration: underline;
+  font-size: 10em;
+}
+.cartItems{
+   margin: auto;
 }
 
-
-.cart{
-  background-image: url('./images/CART.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: inline-block;
-  height: 40px;
-  width: 40px;
-  vertical-align: top
-}
-
-.cart2{
-  background-image: url('./images/CART.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: inline-block;
-  height: 25px;
-  width: 25px;
-  position: relative;
-  left: 61%;
+.checkout{
+  width: 45px;
+  max-width: 100%;
+  max-height: 450px;
 }
 
 .addItem{
-  display: inline;
-  position: relative;
-  left: 60%;
+  flex: 1;
+  font-family:  Brush Script MT, Brush Script Std, cursive;
+  font-size: 2em;
+}
+
+.button{
+  background-color: lightgreen;
+  color: black;
+  margin-left: 70%;
+}
+.placeOrder{
+  margin-left: 85%;
+  background-color: lightblue;
+}
+
+.jerseyContainer{
+  display: flex;
+  justify-content: space-between;
+
 }

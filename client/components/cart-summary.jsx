@@ -15,8 +15,7 @@ class CartSummary extends React.Component {
     const cartItem = this.props.cartItems.map(item => {
       return (
         <CartSummaryItem
-          key={item}
-          id={item.id}
+          key={item.id}
           name={item.name}
           price={item.price}
           image={item.image}

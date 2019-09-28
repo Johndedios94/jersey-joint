@@ -4,6 +4,7 @@ import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import Checkoutform from './checkoutform';
+import Jumbotron from './Jumbotron';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -75,6 +76,7 @@ export default class App extends React.Component {
     if (this.state.view.name === 'catalog') {
       return (
         <div>
+          <Jumbotron />
           <Header cartItemCount={this.state.cart.length} setView={this.setView}/>
           <ProductList setView={this.setView} />
         </div>

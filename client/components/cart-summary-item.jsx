@@ -3,7 +3,7 @@ import React from 'react';
 class CartSummaryItem extends React.Component {
   render() {
     return (
-      <div className="card mb-3" style={{ 'max-width': '940px' }} >
+      <div className="card mb-3" style={{ 'maxWidth': '940px' }} >
         <div className="row no-gutters">
           <div className="col-md-4">
             <img src={this.props.image} className="card-img" alt="..."/>

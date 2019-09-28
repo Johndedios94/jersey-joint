@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import ProductListItem from './product-list-item';
 
 class ProductList extends React.Component {
@@ -34,7 +34,7 @@ class ProductList extends React.Component {
       );
     });
     return (
-      <div className="container" >
+      <div className="jerseyContainer" >
         <div className="row">
           {product}
         </div>
