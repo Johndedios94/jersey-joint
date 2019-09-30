@@ -12,6 +12,7 @@
   font-size: 2em;
   font-family: Brush Script MT, Brush Script Std, cursive;
   flex: 9;
+  text-indent: 3%;
 }
 
 .jumbotron{
@@ -19,7 +20,7 @@
   background-position: right 0px;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 70vh;
+  height: 95vh;
   margin: 0px;
 }
 
@@ -56,6 +57,48 @@
 
 .jerseyContainer{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
 
+.topProducts{
+  display: flex;
+  border-bottom: 5px solid silver;
+}
+
+.firstTopProduct{
+  /* border: 2px solid silver; */
+  text-align: center;
+  /* flex: 3; */
+  width: 50%;
+}
+
+.topProductsText{
+  font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2em;
+  text-align: center;
+  flex: 1;
+}
+
+.topProductDesc{
+   font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2em;
+  text-align: center;
+}
+
+.borderItem {
+  border: 2px  solid silver;
+}
+.card-body{
+  border-top: 2px  solid silver;
+}
+
+#amount{
+  display: inline-block;
+  text-align: center;
+  width: 29%;
+  border-top: 1px  solid silver;
+  border-bottom: 1px  solid silver;
 }
