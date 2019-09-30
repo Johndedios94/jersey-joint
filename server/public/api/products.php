@@ -14,7 +14,7 @@ if(empty($_GET['id'])){
   throw new Exception("id needs to be a number");
 };
 
-var_dump("id is " , $_GET['products.id']);
+// var_dump("id is " , $_GET['products.id']);
 
 $query = "SELECT products.id, products.name, products.price, products.shortDescription, GROUP_CONCAT(images.url) AS imageurl
 FROM products JOIN images ON products.id =
@@ -27,7 +27,7 @@ if(!$result){
 }
   $output = array();
   while($row = mysqli_fetch_assoc($result)){
-  $row['imageurl'] = explode(",", $row['imageurl']);
+  $row['imageurl'] = explode(',', $row['imageurl']);
   $output[] = $row;
 }
  print(json_encode($output))
