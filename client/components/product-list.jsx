@@ -8,7 +8,7 @@ class ProductList extends React.Component {
     this.getProducts = this.getProducts.bind(this);
   }
   componentDidMount() {
-    this.getProducts();
+    // this.getProducts();
   }
   getProducts() {
     fetch('/api/products.php')

@@ -15,6 +15,7 @@ $id = $id['id'];
 $cartID = null;
 if (empty($_SESSION['cartId'])) {
   print(json_encode([]));
+  throw new exception("must have a valid product id to add to cart");
   exit();
 } else {
   $cartID = $_SESSION['cartId'];

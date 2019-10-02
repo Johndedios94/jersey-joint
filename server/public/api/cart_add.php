@@ -8,12 +8,16 @@ startup();
 
 $json = file_get_contents('php://input');
 $id = json_decode($json, true);
+var_dump("the posted data is", $json);
+
 intval($id);
 $id = $id['id'];
+
 
 if($id === 0){
   throw new Exception("no id");
 };
+
 
 // $cartID = null;
 // if(empty($_SESSION['cartID'])){
@@ -28,14 +32,14 @@ if($id === 0){
 //   exit();
 // };
 
-$query = "SELECT `price` FROM `products` WHERE id = ";
+$query = "SELECT `price` FROM `products` WHERE id = " ;
 $result = mysqli_query($conn, $query);
 var_dump('result is ', $result);
 var_dump('query is', $query);
 // print("hi");
 
 if (!$result) {
-  throw new Exception("need a valid id");
+  throw new Exception("product needs a valid id");
 } else if (!mysqli_num_rows($result) && !empty($_GET['id'])) {
   throw new Exception('Invalid ID: ' . $_GET['id']);
 }

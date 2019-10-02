@@ -11,10 +11,12 @@ define("INTERNAL", true);
 
 switch($_SERVER["REQUEST_METHOD"]){
   case "GET":
-  require_once('cart_add.php');
+  var_dump("get");
+  require_once('cart_get.php');
   break;
   case "POST":
-  require_once('cart_get.php');
+  var_dump("post");
+  require_once('cart_add.php');
   break;
 }
 
