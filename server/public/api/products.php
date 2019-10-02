@@ -24,10 +24,11 @@ GROUP BY images.productid";
 $result = $conn->query($query);
 if(!$result){
   throw new Exception(mysqli_connect_error($conn));
-}
+};
+
   $output = array();
   while($row = mysqli_fetch_assoc($result)){
-  $row['imageurl'] = explode(',', $row['imageurl']);
+  // $row['imageurl'] = explode(',', $row['imageurl']);
   $output[] = $row;
 }
  print(json_encode($output))
