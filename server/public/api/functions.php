@@ -9,12 +9,13 @@
   $json_output= json_encode($output);
   print($json_output);
 
+ }
   function getBodyData()
   {
-    $json = file_get_contents('php://input');
-    $data = json_decode($json, true);
-    return $data;
+    $bodyData = file_get_contents('php://input');
+    $phpObj = json_decode($bodyData, true);
+    return $phpObj;
   }
 
- }
+
  ?>
