@@ -1,5 +1,4 @@
 
-
 <?php
  function startup(){
     return header('Content-Type: application/json');
@@ -10,7 +9,6 @@
   $json_output= json_encode($output);
   print($json_output);
 
- }
   function getBodyData()
   {
     $bodyData = file_get_contents('php://input');

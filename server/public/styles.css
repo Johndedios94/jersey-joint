@@ -1,41 +1,104 @@
 
-.headerbg{
-  background-color: grey;
-  display: block;
+.mainHeader{
+  display: flex;
+  border-bottom: 3px solid black;
+  border-top: 3px solid black;
+  /* justify-content: space-around; */
+  flex-direction: row;
 }
 
-.header{
-  display: inline-block;
-  background-color: none;
+.headerText{
   color: black;
-  position: relative;
+  font-size: 2em;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  flex: 9;
+  text-indent: 3%;
+}
+
+.jumbotron{
+  background-image: url("./images/basketball-147657_1280.png");
+  background-position: right 0px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 95vh;
+  margin: 0px;
+}
+
+.jumbotronText{
+  font-family: Brush Script MT, Brush Script Std, cursive;
   text-decoration: underline;
+  font-size: 10em;
+}
+.cartItems{
+   margin: auto;
 }
 
-
-.cart{
-  background-image: url('./images/CART.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: inline-block;
-  height: 40px;
-  width: 40px;
-  vertical-align: top
-}
-
-.cart2{
-  background-image: url('./images/CART.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: inline-block;
-  height: 25px;
-  width: 25px;
-  position: relative;
-  left: 61%;
+.checkout{
+  width: 45px;
+  max-width: 100%;
+  max-height: 450px;
 }
 
 .addItem{
-  display: inline;
-  position: relative;
-  left: 60%;
+  flex: 1;
+  font-family:  Brush Script MT, Brush Script Std, cursive;
+  font-size: 2em;
+}
+
+.button{
+  background-color: lightgreen;
+  color: black;
+  margin-left: 70%;
+}
+.placeOrder{
+  margin-left: 85%;
+  background-color: lightblue;
+}
+
+.jerseyContainer{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.topProducts{
+  display: flex;
+  border-bottom: 5px solid silver;
+}
+
+.firstTopProduct{
+  /* border: 2px solid silver; */
+  text-align: center;
+  /* flex: 3; */
+  width: 50%;
+}
+
+.topProductsText{
+  font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2em;
+  text-align: center;
+  flex: 1;
+}
+
+.topProductDesc{
+   font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2em;
+  text-align: center;
+}
+
+.borderItem {
+  border: 2px  solid silver;
+}
+.card-body{
+  border-top: 2px  solid silver;
+}
+
+#amount{
+  display: inline-block;
+  text-align: center;
+  width: 29%;
+  border-top: 1px  solid silver;
+  border-bottom: 1px  solid silver;
 }
