@@ -1,4 +1,5 @@
 <?php
+
 require_once('functions.php');
 set_exception_handler('error_handling');
 
@@ -32,5 +33,6 @@ if(!$result){
   $output[] = $row;
 }
  print(json_encode($output))
+
 
 ?>

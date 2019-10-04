@@ -1,27 +1,41 @@
-.header{
+
+.headerbg{
+  background-color: grey;
   display: block;
-  background-color: black;
-  color: white;
-  position: relative;
 }
+
+.header{
+  display: inline-block;
+  background-color: none;
+  color: black;
+  position: relative;
+  text-decoration: underline;
+}
+
 
 .cart{
   background-image: url('./images/CART.png');
   background-repeat: no-repeat;
-  height: 100%;
-  width: 100;
-  display: inline-block;
-  left: 10%;
-  position: absolute;
-}
-
-.shoes{
-  background-image: url('./');
   background-size: contain;
-  height: 100%;
-  width: 100%;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  vertical-align: top
 }
 
-.clean{
+.cart2{
+  background-image: url('./images/CART.png');
+  background-repeat: no-repeat;
+  background-size: contain;
   display: inline-block;
+  height: 25px;
+  width: 25px;
+  position: relative;
+  left: 61%;
+}
+
+.addItem{
+  display: inline;
+  position: relative;
+  left: 60%;
 }
