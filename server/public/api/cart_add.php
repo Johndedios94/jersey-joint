@@ -48,17 +48,15 @@ if (!$transactionResult) {
 if(!$cartID){
   $insertQuery = "INSERT INTO `cart` SET `created` = NOW()";
   $insertQueryResult = mysqli_query($conn, $insertQuery);
-  var_dump("hi result is ", $insertQueryResult);
   if(mysqli_affected_rows($conn) === 0){
     throw new Exception("no rows affected");
   };
   $cartID = mysqli_insert_id($conn);
   $_SESSION['cartId'] = $cartID;
-  var_dump("this is the insert id ", $insertId);
 }
 $insertTableQuery = "INSERT INTO `cartItems`(`count`, `productID`, `price`, `added`, `cartID`)
 VALUES (1, $id, $price, NOW(), $cartID ) ON DUPLICATE KEY UPDATE `count`=`count`+ 1";
-var_dump("Insert table query is ", $insertTableQuery);
+
 
 $inserResult = mysqli_query($conn, $insertTableQuery);
 
@@ -69,7 +67,6 @@ if(mysqli_affected_rows($conn) === 0){
   } else if (mysqli_affected_Rows($conn) >= 1){
     $commit = "COMMIT";
     mysqli_query($conn, $commit);
-
   };
 
 
