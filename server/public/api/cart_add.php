@@ -5,36 +5,13 @@ if(!INTERNAL){
   print("Direct access not allowed");
   exit();
 };
-// require_once('cart.php');
-// set_exception_handler('error_handling');
-
-// require_once('db_connection.php');
-// startup();
-
-// $item = file_get_contents('php://input');
-// $id = getBodyData($item);
-// $id = json_decode($item, true);
 
 $bodyData = getBodyData();
 $id = $bodyData["id"];
-// $idint = (int)$id;
-// var_dump("the count is", $bodyData["count"]);
-
-
 
 if($id <= 0){
   throw new Exception("id iz invalid");
 };
-// intval($id);
-// $id = $id['id'];
-
-
-// if($id === 0){
-//   throw new Exception("no id");
-// };
-
-// var_dump("session id is ", $_SESSION['cartId']);
-// $cartID = $_SESSION['cartID'];
 
 if(array_key_exists('cartId', $_SESSION)){
   $cartID = $_SESSION['cartId'];
@@ -42,24 +19,12 @@ if(array_key_exists('cartId', $_SESSION)){
   $cartID = false;
 };
 
-
-var_dump("cart id is", $cartID);
-// var_dump("id is ", $id);
-
-
 $query = "SELECT `price` FROM `products` WHERE id = $id" ;
 $result = mysqli_query($conn, $query);
-// var_dump('result is ', $result);
-// var_dump('query is', $query);
-// print("hi");
 
 if (!$result) {
   throw new Exception('Connect Failed');
 }
-
-// else if (!mysqli_num_rows($result) && !empty($_GET['id'])) {
-//   throw new Exception('Invalid ID: ' . $_GET['id']);
-// }
 
 if(mysqli_num_rows($result) <= 0){
   throw new Exception("No data, invalid product id " . $id);
@@ -70,8 +35,6 @@ while($row = mysqli_fetch_assoc($result)){
 };
 $price = $productData[0]["price"];
 
-var_dump("product data is ", $price);
-
 
 $transactionQuery = "START TRANSACTION";
 $transactionResult = mysqli_query($conn, $transactionQuery);
@@ -81,9 +44,6 @@ if (!$transactionResult) {
 } else if (!mysqli_num_rows($result) && !empty($_GET['id'])) {
   throw new Exception('Invalid ID: ' . $_GET['id']);
 };
-
-// var_dump("Cart id here is ", $cartID);
-// var_dump("cart id is ", $cartID);
 
 if(!$cartID){
   $insertQuery = "INSERT INTO `cart` SET `created` = NOW()";
