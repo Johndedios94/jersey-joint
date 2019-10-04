@@ -8,7 +8,7 @@ class ProductList extends React.Component {
     this.getProducts = this.getProducts.bind(this);
   }
   componentDidMount() {
-    // this.getProducts();
+    this.getProducts();
   }
   getProducts() {
     fetch('/api/products.php')
@@ -21,6 +21,7 @@ class ProductList extends React.Component {
   }
 
   render() {
+    console.log(this.state.products);
     const product = this.state.products.map(item => {
       return (
         <ProductListItem
@@ -29,7 +30,7 @@ class ProductList extends React.Component {
           price={item.price}
           image={item.image}
           shortDescription={item.shortDescription}
-          longDescription={item.longDescription}
+          // longDescription={item.longDescription}
           setView={this.props.setView}
         />
       );

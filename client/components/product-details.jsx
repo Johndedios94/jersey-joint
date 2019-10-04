@@ -12,6 +12,7 @@ class ProductDetails extends React.Component {
 
   }
   componentDidMount() {
+    console.log('view is ', this.props.view);
     fetch('/api/products.php?id=' + this.props.view.id)
       .then(response => response.json())
       .then(data => {
@@ -23,8 +24,8 @@ class ProductDetails extends React.Component {
       );
   }
   toggleQuantity() {
-    console.log('product is ', this.state.product);
-    console.log('product times 2 is, ', (this.state.product * 2));
+    // console.log('product is ', this.state.product);
+    // console.log('product times 2 is, ', (this.state.product * 2));
     var amount = document.getElementById('amount');
     if (event.target.id === 'add') {
       this.counter++;
@@ -40,28 +41,31 @@ class ProductDetails extends React.Component {
   }
 
   render() {
+    // console.log('Details state ', this.state.product[0]);
+
     if (this.state.product) {
+      console.log('Details state in conditional is ', this.state.product[0].image);
       return (
         <div className="col-md-4">
           <div className="info-window d-flex justify-content-center" style={{ 'width': '100vw' }}>
             <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-5" >{'Back to catalog'}</div>
 
-            <img className="mt-5 ml-5" style={{ 'height': '40vh', 'width': '40vw' }} src={this.state.product.image} alt="Bad Image" />
+            <img className="mt-5 ml-5" style={{ 'height': '40vh', 'width': '40vw' }} src={this.state.product[0].image} alt="Bad Image" />
             <div className="ml-5" style={{ 'width': '10vw' }}>
-              <h5 className="mt-5">{this.state.product.name}</h5>
+              <h5 className="mt-5">{this.state.product[0].name}</h5>
               <div>
                 <button id='subtract' onClick={this.toggleQuantity}>-</button>
                 <div id="amount">{this.counter}</div>
                 <button id='add' onClick={this.toggleQuantity}>+</button>
               </div>
               <button onClick={() => { this.props.addToCart(this.state.product); }} >Add to Cart</button>
-              <p className="mt-5 text-secondary">$ {((this.state.product.price) / 100).toFixed(2)}</p>
-              <p className="mt-5">{this.state.product.shortDescription}</p>
+              <p className="mt-5 text-secondary">$ {((this.state.product[0].price) / 100).toFixed(2)}</p>
+              <p className="mt-5">{this.state.product[0].shortDescription}</p>
             </div>
 
           </div>
           <div className="d-flex justify-content-center" style={{ 'width': '100vw' }}>
-            <p className="mt-5 col-5 col-md-5">{this.state.product.longDescription}</p>
+            {/* <p className="mt-5 col-5 col-md-5">{this.state.product.longDescription}</p> */}
           </div>
         </div>
       );

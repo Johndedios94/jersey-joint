@@ -8,7 +8,7 @@ function ProductListItem(props) {
         <h5 className="card-title">{props.name}</h5>
         <p className="card-text">${(props.price / 100).toFixed(2)}</p>
         <p className="card-text">{props.shortDescription}</p>
-        <p className="card-text">{props.longDescription}</p>
+        {/* <p className="card-text">{props.longDescription}</p> */}
       </div>
     </div>
   );
