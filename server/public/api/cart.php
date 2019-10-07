@@ -11,26 +11,13 @@ $method = $_SERVER['REQUEST_METHOD'];
 // define("INTERNAL", true);
 switch($_SERVER["REQUEST_METHOD"]){
   case "GET":
-  var_dump("get");
+  // var_dump("get");
   require_once('cart_get.php');
   break;
   case "POST":
-  var_dump("post");
+  // var_dump("post");
   require_once('cart_add.php');
   break;
-}
-
-
-$result = mysqli_query($conn, $query);
-$data = [];
-while ($row = mysqli_fetch_assoc($result)) {  // mysqli_fetch_assoc iterates through array until data runs out
-  $data[] = $row;                             // then while tests a falsey value which stops the loop
-}
-if ($data === []) { // if query id does not exist, result will not return anything. So this tests if the id is invalid
-  print("[]");
-  exit();
-} else {
-  print(json_encode($data));
 }
 
 

@@ -2,6 +2,8 @@ import React from 'react';
 
 class CartSummaryItem extends React.Component {
   render() {
+    // console.log('Cart summary item props ', this.props);
+    // console.log('count? ', this.props.count);
     return (
       <div className="card mb-3" style={{ 'maxWidth': '940px' }} >
         <div className="row no-gutters">
@@ -12,6 +14,7 @@ class CartSummaryItem extends React.Component {
             <div className="card-body">
               <h5 className="card-title">{this.props.name}</h5>
               <p className="card-text">${(this.props.price / 100).toFixed(2)}</p>
+              <p className="card-text">Amount: {this.props.count}</p>
               <p className="card-text"><small className="text-muted">{this.props.shortDescription}</small></p>
             </div>
           </div>

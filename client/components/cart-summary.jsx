@@ -3,19 +3,23 @@ import CartSummaryItem from './cart-summary-item';
 
 class CartSummary extends React.Component {
   totalprice() {
+    console.log('price is ', this.props.cartItems);
+    debugger;
     var total = 0;
     for (var i = 0; i < this.props.cartItems.length; i++) {
-      total += this.props.cartItems[i].price;
+      total += parseInt(this.props.cartItems[i].price * this.props.cartItems[i].count);
     }
     var cartTotal = (total / 100).toFixed(2);
     return cartTotal;
   }
 
   render() {
+    console.log('cart summary item props ', this.props.cartItems);
     const cartItem = this.props.cartItems.map(item => {
       return (
         <CartSummaryItem
-          key={item.id}
+          count={item.count}
+          item={item.id}
           name={item.name}
           price={item.price}
           image={item.image}

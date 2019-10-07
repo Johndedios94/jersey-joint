@@ -7,7 +7,9 @@ if(!INTERNAL){
 };
 
 $bodyData = getBodyData();
-$id = $bodyData["id"];
+var_dump("body data is ", $bodyData);
+$id = $bodyData[0]["id"];
+
 
 if($id <= 0){
   throw new Exception("id iz invalid");

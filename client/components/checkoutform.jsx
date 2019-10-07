@@ -11,14 +11,16 @@ class Checkoutform extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   totalprice() {
     var total = 0;
     for (var i = 0; i < this.props.cartItems.length; i++) {
-      total += this.props.cartItems[i].price;
+      total += parseInt(this.props.cartItems[i].price * this.props.cartItems[i].count);
     }
     var cartTotal = (total / 100).toFixed(2);
     return cartTotal;
   }
+
   handleChange(event) {
     if (event.currentTarget.id === 'name') {
       this.setState({ name: event.target.value });

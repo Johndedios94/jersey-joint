@@ -59,10 +59,12 @@ export default class App extends React.Component {
   getCartItems() {
     fetch('/api/cart.php')
       .then(response => response.json())
-      .then(data => this.setState({
-        cart: data
-      }));
-
+      .then(data => {
+        // debugger;
+        console.log(' cart data is ', data);
+        this.setState({ cart: data })
+        ;
+      });
   }
 
   setView(name, params) {
@@ -75,10 +77,11 @@ export default class App extends React.Component {
   }
   render() {
     if (this.state.view.name === 'catalog') {
+      console.log(' cart state ', this.state.cart);
       return (
         <div>
           <Jumbotron />
-          <Header cartItemCount={this.state.cart.length} setView={this.setView}/>
+          <Header cartItemCount={this.state.cart} setView={this.setView}/>
           <Topproduct/>
           <ProductList setView={this.setView} />
         </div>
@@ -86,21 +89,21 @@ export default class App extends React.Component {
     } else if (this.state.view.name === 'details') {
       return (
         <div>
-          <Header cartItemCount={this.state.cart.length} setView={this.setView}/>
+          <Header cartItemCount={this.state.cart} setView={this.setView}/>
           <ProductDetails addToCart={this.addToCart} view={this.state.view.params} setView={this.setView}/>
         </div>
       );
     } else if (this.state.view.name === 'cart') {
       return (
         <div>
-          <Header cartItemCount={this.state.cart.length} setView={this.setView} />
+          <Header cartItemCount={this.state.cart} setView={this.setView} />
           <CartSummary cartItems={this.state.cart} setView={this.setView}/>
         </div>
       );
     } else if (this.state.view.name === 'checkout') {
       return (
         <div>
-          <Header cartItemCount={this.state.cart.length} setView={this.setView} />
+          <Header cartItemCount={this.state.cart} setView={this.setView} />
           <Checkoutform cartItems={this.state.cart} setView={this.setView} placeOrder={this.placeOrder}/>
         </div>
       );

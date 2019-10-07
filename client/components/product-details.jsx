@@ -41,31 +41,32 @@ class ProductDetails extends React.Component {
   }
 
   render() {
-    // console.log('Details state ', this.state.product[0]);
+    console.log('Details state ', this.state.product);
 
     if (this.state.product) {
-      console.log('Details state in conditional is ', this.state.product[0].image);
       return (
-        <div className="col-md-4">
-          <div className="info-window d-flex justify-content-center" style={{ 'width': '100vw' }}>
-            <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-5" >{'Back to catalog'}</div>
-
-            <img className="mt-5 ml-5" style={{ 'height': '40vh', 'width': '40vw' }} src={this.state.product[0].image} alt="Bad Image" />
-            <div className="ml-5" style={{ 'width': '10vw' }}>
-              <h5 className="mt-5">{this.state.product[0].name}</h5>
-              <div>
-                <button id='subtract' onClick={this.toggleQuantity}>-</button>
-                <div id="amount">{this.counter}</div>
-                <button id='add' onClick={this.toggleQuantity}>+</button>
+        <div>
+          <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-5" >
+             Back to Catalog</div>
+          <div className="card my-5 p-4 detailsContainer" style={{ 'maxWidth': '940px' }} >
+            <div className="row no-gutters">
+              <div className="col-md-4">
+                <img src={this.state.product[0].image} className="card-img" alt="..." />
               </div>
-              <button onClick={() => { this.props.addToCart(this.state.product); }} >Add to Cart</button>
-              <p className="mt-5 text-secondary">$ {((this.state.product[0].price) / 100).toFixed(2)}</p>
-              <p className="mt-5">{this.state.product[0].shortDescription}</p>
+              <div className="col-md-8">
+                <div className="detailsInfo">
+                  <h5 className="card-title ">{this.state.product[0].name}</h5>
+                  <p className="card-text ">${(this.state.product[0].price / 100).toFixed(2)}</p>
+                  <div>
+                    <button id='subtract' onClick={this.toggleQuantity}>-</button>
+                    <div id="amount">{this.counter}</div>
+                    <button id='add' onClick={this.toggleQuantity}>+</button>
+                  </div>
+                  <button className ="addbutton" onClick={() => { this.props.addToCart(this.state.product); }} >Add to Cart</button>
+                  <p className="card-text "><small className="text-muted detailsInfo">{this.state.product[0].shortDescription}</small></p>
+                </div>
+              </div>
             </div>
-
-          </div>
-          <div className="d-flex justify-content-center" style={{ 'width': '100vw' }}>
-            {/* <p className="mt-5 col-5 col-md-5">{this.state.product.longDescription}</p> */}
           </div>
         </div>
       );
@@ -77,3 +78,26 @@ class ProductDetails extends React.Component {
 }
 
 export default ProductDetails;
+
+// <div className="col-md-4">
+//   <div className="info-window d-flex justify-content-center" style={{ 'width': '100vw' }}>
+//     <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-5" >{'Back to catalog'}</div>
+
+//     <img className="mt-5 ml-5" style={{ 'height': '40vh', 'width': '20vw' }} src={this.state.product[0].image} alt="Bad Image" />
+//     <div className="ml-5" style={{ 'width': '10vw' }}>
+//       <h5 className="mt-5">{this.state.product[0].name}</h5>
+//       <div>
+//         <button id='subtract' onClick={this.toggleQuantity}>-</button>
+//         <div id="amount">{this.counter}</div>
+//         <button id='add' onClick={this.toggleQuantity}>+</button>
+//       </div>
+//       <button onClick={() => { this.props.addToCart(this.state.product); }} >Add to Cart</button>
+//       <p className="mt-5 text-secondary">$ {((this.state.product[0].price) / 100).toFixed(2)}</p>
+//       <p className="mt-5">{this.state.product[0].shortDescription}</p>
+//     </div>
+
+//   </div>
+//   <div className="d-flex justify-content-center" style={{ 'width': '100vw' }}>
+//     <p className="mt-5 col-5 col-md-5">{this.state.product.longDescription}</p>
+//   </div>
+// </div>

@@ -98,7 +98,33 @@
 #amount{
   display: inline-block;
   text-align: center;
-  width: 29%;
+  width: 5%;
+  background-color: silver;
+  /* border-top: 1px  solid silver;
+  border-bottom: 1px  solid silver; */
+}
+
+.detailsContainer{
+  margin: auto;
+  border: 2px solid black;
+}
+
+.detailsInfo{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.quantity{
   border-top: 1px  solid silver;
   border-bottom: 1px  solid silver;
+  background-color: grey;
+}
+.addbutton{
+   border: 2px solid black;
+   width: 30%;
+   margin: auto;
+}
+#subtract{
+  height: 50%;
 }
