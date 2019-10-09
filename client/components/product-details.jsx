@@ -8,14 +8,15 @@ class ProductDetails extends React.Component {
 
     });
     this.toggleQuantity = this.toggleQuantity.bind(this);
-    this.counter = 0;
-
+    this.counter = 1;
+    this.modalClass = null;
   }
   componentDidMount() {
     console.log('view is ', this.props.view);
     fetch('/api/products.php?id=' + this.props.view.id)
       .then(response => response.json())
       .then(data => {
+        console.log('data is ', data);
         this.setState({
           product: data
         });
@@ -24,25 +25,24 @@ class ProductDetails extends React.Component {
       );
   }
   toggleQuantity() {
-    // console.log('product is ', this.state.product);
-    // console.log('product times 2 is, ', (this.state.product * 2));
     var amount = document.getElementById('amount');
     if (event.target.id === 'add') {
       this.counter++;
-      amount.innerHTML = this.counter;
+      amount.text = this.counter;
       this.setState({
         product: this.state.product
       });
-      console.log('the amount is ', amount);
     } else {
       this.counter--;
       amount.innerHTML = this.counter;
     }
   }
+  showModal() {
+    console.log('hi');
+    this.modalClass = 'modalappear';
+  }
 
   render() {
-    console.log('Details state ', this.state.product);
-
     if (this.state.product) {
       return (
         <div>
@@ -55,15 +55,16 @@ class ProductDetails extends React.Component {
               </div>
               <div className="col-md-8">
                 <div className="detailsInfo">
-                  <h5 className="card-title ">{this.state.product[0].name}</h5>
+                  <h5 className="card-title ">{this.state.product[0].shortDescription}</h5>
                   <p className="card-text ">${(this.state.product[0].price / 100).toFixed(2)}</p>
                   <div>
                     <button id='subtract' onClick={this.toggleQuantity}>-</button>
                     <div id="amount">{this.counter}</div>
                     <button id='add' onClick={this.toggleQuantity}>+</button>
                   </div>
-                  <button className ="addbutton" onClick={() => { this.props.addToCart(this.state.product); }} >Add to Cart</button>
-                  <p className="card-text "><small className="text-muted detailsInfo">{this.state.product[0].shortDescription}</small></p>
+                  <button className ="addbutton mt-4" onClick={() => { this.props.addToCart(this.state.product, this.counter); this.showModal() ;}} >Add to Cart</button>
+                  <div className="modal">THANK YOU FOR YOUR PURCHASE</div>
+                  <p className="mt-4">{this.state.product[0].longDescription}</p>
                 </div>
               </div>
             </div>

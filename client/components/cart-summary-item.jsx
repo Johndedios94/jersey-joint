@@ -1,21 +1,48 @@
 import React from 'react';
 
 class CartSummaryItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: parseInt(this.props.count)
+    };
+    this.toggleQuantity = this.toggleQuantity.bind(this);
+
+    // this.quantity = parseInt(this.props.count);
+
+  }
+  toggleQuantity() {
+    if (event.target.id === 'add') {
+      var updateCount = this.state.count += 1;
+      this.setState({ count: updateCount });
+    } else {
+      var decrementCount = this.state.count -= 1;
+      this.setState({ count: decrementCount });
+    }
+  }
   render() {
-    // console.log('Cart summary item props ', this.props);
-    // console.log('count? ', this.props.count);
     return (
-      <div className="card mb-3" style={{ 'maxWidth': '940px' }} >
-        <div className="row no-gutters">
-          <div className="col-md-4">
-            <img src={this.props.image} className="card-img" alt="..."/>
-          </div>
-          <div className="col-md-8">
-            <div className="card-body">
-              <h5 className="card-title">{this.props.name}</h5>
-              <p className="card-text">${(this.props.price / 100).toFixed(2)}</p>
-              <p className="card-text">Amount: {this.props.count}</p>
-              <p className="card-text"><small className="text-muted">{this.props.shortDescription}</small></p>
+
+      <div>
+        <div className="card my-2 p-4 detailsContainer" style={{ 'maxWidth': '940px' }} >
+          <div className="row no-gutters">
+            <div className="col-md-4">
+              <img src={this.props.image} className="card-img" alt="..." />
+            </div>
+            <div className="col-md-8">
+              <div className="detailsInfo">
+                <h5 className="card-title ">{this.props.shortDescription}</h5>
+                <p className="card-text ">${(this.props.price / 100).toFixed(2)}</p>
+                <div>
+                  <button id='subtract' onClick={this.toggleQuantity}>-</button>
+                  <div id="amount"> {this.state.count}</div>
+                  <button id='add' onClick={this.toggleQuantity}>+</button>
+                </div>
+                <div>
+                  <button className="deleteButton mt-4 mr-2" onClick={() => { this.props.deleteItem(this.props.itemid); }} >Delete</button>
+                  <button className="updateButton mt-4" onClick={() => { this.props.updateCart(this.props.itemid, this.state.count); }} >Update</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

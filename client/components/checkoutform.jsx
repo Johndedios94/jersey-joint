@@ -43,6 +43,7 @@ class Checkoutform extends React.Component {
   }
 
   render() {
+    console.log('cart item props are', this.props.cartItems);
     return (
       <>
         <div className="mx-auto col-5" style={{ 'width': '80vw' }}>
@@ -61,7 +62,7 @@ class Checkoutform extends React.Component {
               <input type="text" className="form-control form" id="address" aria-describedby="emailHelp" placeholder="Enter Shipping Address" onChange={this.handleChange} />
             </div>
             <span onClick={() => { this.props.setView('catalog', {}); }} className="mt-5" >{'< Continue Shopping'}</span>
-            <button type="submit" className="placeOrder">Place Order</button>
+            <button onClick={() => { this.props.setView('cartConfirmation', {}); this.props.deleteCart(this.props.cartItems); }} type="button" className="placeOrder">Place Order</button>
           </form>
         </div>
       </>

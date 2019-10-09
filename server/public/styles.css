@@ -46,6 +46,7 @@
 }
 
 .button{
+  font-family: Brush Script MT, Brush Script Std, cursive;
   background-color: lightgreen;
   color: black;
   margin-left: 70%;
@@ -124,7 +125,41 @@
    border: 2px solid black;
    width: 30%;
    margin: auto;
+   background-color: lightgreen
 }
 #subtract{
   height: 50%;
+}
+
+.deleteButton{
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  background-color: red;
+  border: 1px solid black;
+}
+
+.updateButton{
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  background-color: lightblue;
+  border: 1px solid black;
+}
+
+.modalappear{
+  height: 31%;
+  width: 30%;
+  background-color: grey;
+  position: fixed;
+  padding-top: 100px;
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  border-radius: 25px;
+  text-shadow: 3px 5px black;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.hidden {
+  display: none
 }

@@ -14,7 +14,7 @@ images.productId
 GROUP BY images.productid";
 } else if(is_numeric($_GET['id'])){
   $id = ($_GET['id']);
-  $query = "SELECT products.id, products.name, products.price, products.shortDescription, GROUP_CONCAT(images.image) AS image
+  $query = "SELECT products.id, products.name, products.price, products.shortDescription, products.longDescription, GROUP_CONCAT(images.image) AS image
   FROM products JOIN images ON products.id =
   images.productId
   WHERE products.id = $id

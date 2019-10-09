@@ -32,7 +32,7 @@ class ProductList extends React.Component {
           price={item.price}
           image={item.image}
           shortDescription={item.shortDescription}
-          // longDescription={item.longDescription}
+          longDescription={item.longDescription}
           setView={this.props.setView}
         />
       );
