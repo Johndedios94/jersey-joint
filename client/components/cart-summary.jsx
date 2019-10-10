@@ -37,7 +37,7 @@ class CartSummary extends React.Component {
     if (!this.props.cartItems.length) {
       return (
         <>
-          <h5 onClick={() => { this.props.setView('catalog', {}); }} className="mt-5" >{'Back to catalog'}</h5>
+          <h5 onClick={() => { this.props.setView('catalog', {}); }} className="mt-2 catalogButton" >{'Back to catalog'}</h5>
           <div className="mx-auto" style={{ 'width': '50vw' }}>
             <h1>Your cart is Empty</h1>
           </div>
@@ -46,11 +46,14 @@ class CartSummary extends React.Component {
     } else {
       return (
        <>
-          <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-1" >{'Back to catalog'}</div>
+          <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-2 catalogButton" >{'Back to catalog'}</div>
         <div className="mx-auto" style={{ 'width': '50vw' }}>
           <h1>My Cart</h1>
           <div>{cartItem}</div>
-          <h5>Item total ${this.totalprice()} <button className="button" onClick={() => { this.props.setView('checkout', {}); this.props.cartConfirmation(this.state.finalcart); }}>Checkout</button></h5>
+          <div className="itemCheckout">
+            <div>Item total ${this.totalprice()}</div>
+            <button className="button" onClick={() => { this.props.setView('checkout', {}); this.props.cartConfirmation(this.state.finalcart); }}>Checkout</button>
+          </div>
         </div>
         </>
       );

@@ -1,5 +1,5 @@
 import React from 'react';
-import CartSummaryItem from './cart-summary-item';
+import CartConfirmationItem from './cart-confirmation-item';
 
 class CartConfirmation extends React.Component {
   totalprice() {
@@ -15,7 +15,7 @@ class CartConfirmation extends React.Component {
     console.log('cart summary item props ', this.props.finalCart);
     const cartItem = this.props.finalCart.map(item => {
       return (
-        <CartSummaryItem
+        <CartConfirmationItem
           key = {item}
           count={item.count}
           item={item.id}

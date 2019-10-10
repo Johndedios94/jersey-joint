@@ -1,6 +1,6 @@
 import React from 'react';
 
-class CartSummaryItem extends React.Component {
+class CartConfirmationItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,15 +34,7 @@ class CartSummaryItem extends React.Component {
                 <h5 className="card-title ">{this.props.shortDescription}</h5>
                 <p className="card-text ">${(this.props.price / 100).toFixed(2)}</p>
                 <div>
-                  <button onClick={this.toggleQuantity} id='subtract' type="button" className="operator btn btn-secondary">-</button>
-                  {/* <button id='subtract' onClick={this.toggleQuantity}>-</button> */}
-                  <div id="amount"> {this.state.count}</div>
-                  {/* <button id='add' onClick={this.toggleQuantity}>+</button> */}
-                  <button onClick={this.toggleQuantity} id='add' type="button" className="operator btn btn-secondary">+</button>
-                </div>
-                <div>
-                  <button className="deleteButton mt-4 mr-2" onClick={() => { this.props.deleteItem(this.props.itemid); }} >Delete</button>
-                  <button className="updateButton mt-4" onClick={() => { this.props.updateCart(this.props.itemid, this.state.count); }} >Update</button>
+                  <div> Quantity {this.state.count}</div>
                 </div>
               </div>
             </div>
@@ -53,4 +45,4 @@ class CartSummaryItem extends React.Component {
   }
 }
 
-export default CartSummaryItem;
+export default CartConfirmationItem;

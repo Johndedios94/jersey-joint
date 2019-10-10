@@ -46,8 +46,10 @@ class Checkoutform extends React.Component {
     console.log('cart item props are', this.props.cartItems);
     return (
       <>
+        <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-2 catalogButton" >
+          Back to Catalog</div>
         <div className="mx-auto col-5" style={{ 'width': '80vw' }}>
-          <h5>Item total ${this.totalprice()}</h5>
+          <h5>Item total: ${this.totalprice()}</h5>
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label htmlFor="exampleInputEmail1">Name</label>
@@ -61,8 +63,7 @@ class Checkoutform extends React.Component {
               <label htmlFor="exampleInputPassword1">Shipping Address</label>
               <input type="text" className="form-control form" id="address" aria-describedby="emailHelp" placeholder="Enter Shipping Address" onChange={this.handleChange} />
             </div>
-            <span onClick={() => { this.props.setView('catalog', {}); }} className="mt-5" >{'< Continue Shopping'}</span>
-            <button onClick={() => { this.props.setView('cartConfirmation', {}); this.props.deleteCart(this.props.cartItems); }} type="button" className="placeOrder">Place Order</button>
+            <button onClick={() => { this.props.setView('cartConfirmation', {}); this.props.deleteCart(this.props.cartItems); }} type="button" className="updateButton itemCheckout mx-auto" >Place Order</button>
           </form>
         </div>
       </>

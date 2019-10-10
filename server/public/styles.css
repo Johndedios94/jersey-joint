@@ -1,3 +1,6 @@
+/* body{
+   background-image: url("./images/jerseysbg.png")
+} */
 
 .mainHeader{
   display: flex;
@@ -5,6 +8,7 @@
   border-top: 3px solid black;
   /* justify-content: space-around; */
   flex-direction: row;
+  background-color: white;
 }
 
 .headerText{
@@ -34,9 +38,11 @@
 }
 
 .checkout{
+  font-family:  Brush Script MT, Brush Script Std, cursive;
   width: 45px;
   max-width: 100%;
   max-height: 450px;
+  font-size: 1.5rem
 }
 
 .addItem{
@@ -56,6 +62,24 @@
   background-color: lightblue;
 }
 
+.catalogButton{
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  text-indent: 3%;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.catalogButton:hover {
+  color: teal
+}
+
+.itemCheckout{
+  display: flex;
+  flex-direction: row;
+  font-size: 1.2rem;
+}
+
+
 .jerseyContainer{
   display: flex;
   justify-content: space-evenly;
@@ -65,11 +89,13 @@
 }
 
 .topProducts{
+  background-color: white;
   display: flex;
   border-bottom: 5px solid silver;
 }
 
 .firstTopProduct{
+  background-color: white;
   /* border: 2px solid silver; */
   text-align: center;
   /* flex: 3; */
@@ -90,7 +116,7 @@
 }
 
 .borderItem {
-  border: 2px  solid silver;
+  border: 3px  solid black;
 }
 .card-body{
   border-top: 2px  solid silver;
@@ -100,9 +126,9 @@
   display: inline-block;
   text-align: center;
   width: 5%;
-  background-color: silver;
-  /* border-top: 1px  solid silver;
-  border-bottom: 1px  solid silver; */
+  /* background-color: silver; */
+  font-size: 1.5rem;
+
 }
 
 .detailsContainer{
@@ -127,20 +153,20 @@
    margin: auto;
    background-color: lightgreen
 }
-#subtract{
-  height: 50%;
-}
+
 
 .deleteButton{
   font-family: Brush Script MT, Brush Script Std, cursive;
   background-color: red;
   border: 1px solid black;
+  font-size: 1.5rem
 }
 
 .updateButton{
   font-family: Brush Script MT, Brush Script Std, cursive;
   background-color: lightblue;
   border: 1px solid black;
+  font-size: 1.5rem
 }
 
 .modalappear{
@@ -162,4 +188,8 @@
 
 .hidden {
   display: none
+}
+
+.modaltext .operator{
+  font-weight: bold;
 }

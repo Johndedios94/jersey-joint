@@ -1,15 +1,18 @@
 import React from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = ({
-      product: null
+      product: null,
+      modal: false
 
     });
     this.toggleQuantity = this.toggleQuantity.bind(this);
     this.counter = 1;
     this.modalClass = null;
+    this.toggle = this.toggle.bind(this);
   }
   componentDidMount() {
     console.log('view is ', this.props.view);
@@ -24,6 +27,13 @@ class ProductDetails extends React.Component {
 
       );
   }
+
+  toggle() {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+  }
+
   toggleQuantity() {
     var amount = document.getElementById('amount');
     if (event.target.id === 'add') {
@@ -33,20 +43,33 @@ class ProductDetails extends React.Component {
         product: this.state.product
       });
     } else {
-      this.counter--;
+      if (this.counter === 1) {
+        this.counter = 1;
+      } else {
+        this.counter--;
+      }
       amount.innerHTML = this.counter;
     }
-  }
-  showModal() {
-    console.log('hi');
-    this.modalClass = 'modalappear';
   }
 
   render() {
     if (this.state.product) {
       return (
         <div>
-          <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-5" >
+          <div>
+            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+              <ModalHeader toggle={this.toggle}>Added to Cart!</ModalHeader>
+              <ModalBody>
+                <div className="modaltext">Product: {this.state.product[0].name}</div>
+                <div className="modaltext">Quantity: {this.counter}</div>
+              </ModalBody>
+              <ModalFooter>
+                <Button color="primary" onClick={() => { this.props.setView('cart', {}); this.toggle(); }}>Go To Cart</Button>
+                <Button color="primary" onClick={this.toggle}>Continue Shopping</Button>
+              </ModalFooter>
+            </Modal>
+          </div>
+          <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-2 catalogButton" >
              Back to Catalog</div>
           <div className="card my-5 p-4 detailsContainer" style={{ 'maxWidth': '940px' }} >
             <div className="row no-gutters">
@@ -58,11 +81,13 @@ class ProductDetails extends React.Component {
                   <h5 className="card-title ">{this.state.product[0].shortDescription}</h5>
                   <p className="card-text ">${(this.state.product[0].price / 100).toFixed(2)}</p>
                   <div>
-                    <button id='subtract' onClick={this.toggleQuantity}>-</button>
+                    <button onClick={this.toggleQuantity} id='subtract'type="button" className="operator btn btn-secondary">-</button>
+                    {/* <button id='subtract' onClick={this.toggleQuantity}>-</button> */}
                     <div id="amount">{this.counter}</div>
-                    <button id='add' onClick={this.toggleQuantity}>+</button>
+                    <button onClick={this.toggleQuantity} id='add' type="button" className="operator btn btn-secondary">+</button>
+                    {/* <button id='add' onClick={this.toggleQuantity}>+</button> */}
                   </div>
-                  <button className ="addbutton mt-4" onClick={() => { this.props.addToCart(this.state.product, this.counter); this.showModal() ;}} >Add to Cart</button>
+                  <button className ="addbutton mt-4" onClick={() => { this.props.addToCart(this.state.product, this.counter); this.toggle(); }} >Add to Cart</button>
                   <div className="modal">THANK YOU FOR YOUR PURCHASE</div>
                   <p className="mt-4">{this.state.product[0].longDescription}</p>
                 </div>
