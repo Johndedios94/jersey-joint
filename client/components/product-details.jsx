@@ -78,18 +78,15 @@ class ProductDetails extends React.Component {
               </div>
               <div className="col-md-8">
                 <div className="detailsInfo">
-                  <h5 className="card-title ">{this.state.product[0].shortDescription}</h5>
-                  <p className="card-text ">${(this.state.product[0].price / 100).toFixed(2)}</p>
+                  <h5 className="card-title name" >{this.state.product[0].shortDescription}</h5>
+                  <p className="card-text price">${(this.state.product[0].price / 100).toFixed(2)}</p>
                   <div>
-                    <button onClick={this.toggleQuantity} id='subtract'type="button" className="operator btn btn-secondary">-</button>
-                    {/* <button id='subtract' onClick={this.toggleQuantity}>-</button> */}
+                    <button onClick={this.toggleQuantity} id='subtract'type="button" className="operator">-</button>
                     <div id="amount">{this.counter}</div>
-                    <button onClick={this.toggleQuantity} id='add' type="button" className="operator btn btn-secondary">+</button>
-                    {/* <button id='add' onClick={this.toggleQuantity}>+</button> */}
+                    <button onClick={this.toggleQuantity} id='add' type="button" className="operator">+</button>
                   </div>
                   <button className ="addbutton mt-4" onClick={() => { this.props.addToCart(this.state.product, this.counter); this.toggle(); }} >Add to Cart</button>
-                  <div className="modal">THANK YOU FOR YOUR PURCHASE</div>
-                  <p className="mt-4">{this.state.product[0].longDescription}</p>
+                  <p className="mt-4 longDesc">{this.state.product[0].longDescription}</p>
                 </div>
               </div>
             </div>

@@ -24,21 +24,21 @@ class CartSummaryItem extends React.Component {
     return (
 
       <div>
-        <div className="card my-2 p-4 detailsContainer" style={{ 'maxWidth': '940px' }} >
+        <div className="card my-2 p-4 detailsContainer" style={{ 'minWidth': '930px' }} >
           <div className="row no-gutters">
             <div className="col-md-4">
               <img src={this.props.image} className="card-img" alt="..." />
             </div>
             <div className="col-md-8">
               <div className="detailsInfo">
-                <h5 className="card-title ">{this.props.shortDescription}</h5>
-                <p className="card-text ">${(this.props.price / 100).toFixed(2)}</p>
+                <h5 className="card-title name">{this.props.shortDescription}</h5>
+                <p className="card-text price">${(this.props.price / 100).toFixed(2)}</p>
                 <div>
-                  <button onClick={this.toggleQuantity} id='subtract' type="button" className="operator btn btn-secondary">-</button>
+                  <button onClick={this.toggleQuantity} id='subtract' type="button" className="operator">-</button>
                   {/* <button id='subtract' onClick={this.toggleQuantity}>-</button> */}
                   <div id="amount"> {this.state.count}</div>
                   {/* <button id='add' onClick={this.toggleQuantity}>+</button> */}
-                  <button onClick={this.toggleQuantity} id='add' type="button" className="operator btn btn-secondary">+</button>
+                  <button onClick={this.toggleQuantity} id='add' type="button" className="operator">+</button>
                 </div>
                 <div>
                   <button className="deleteButton mt-4 mr-2" onClick={() => { this.props.deleteItem(this.props.itemid); }} >Delete</button>

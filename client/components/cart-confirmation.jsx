@@ -29,13 +29,13 @@ class CartConfirmation extends React.Component {
     });
     return (
         <>
-          <h5 onClick={() => { this.props.setView('catalog', {}); }} className="mt-1" >{'Back to catalog'}</h5>
+        <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-2 catalogButton" >
+          Back to Catalog</div>
           <div className="mx-auto" style={{ 'width': '50vw' }}>
-            <h1>Thank you for your purchase!</h1>
-            <div>Order Summary</div>
+            <h1 className="name">Thank you for your purchase!</h1>
+            <h2>Order Summary:</h2>
+            <h5>Item total ${this.totalprice()}</h5>
             <div>{cartItem}</div>
-            <h5>Item total ${this.totalprice()}
-              <button className="button" onClick={() => { this.props.setView('checkout', {}); }}></button></h5>
           </div>
         </>
     );

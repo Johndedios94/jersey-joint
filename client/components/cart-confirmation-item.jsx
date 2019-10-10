@@ -31,10 +31,10 @@ class CartConfirmationItem extends React.Component {
             </div>
             <div className="col-md-8">
               <div className="detailsInfo">
-                <h5 className="card-title ">{this.props.shortDescription}</h5>
-                <p className="card-text ">${(this.props.price / 100).toFixed(2)}</p>
+                <h5 className="card-title name ">{this.props.shortDescription}</h5>
+                <p className="card-text price">${(this.props.price / 100).toFixed(2)}</p>
                 <div>
-                  <div> Quantity {this.state.count}</div>
+                  <div className="card-text price"> Quantity: {this.state.count}</div>
                 </div>
               </div>
             </div>

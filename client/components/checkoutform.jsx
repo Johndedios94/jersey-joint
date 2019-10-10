@@ -22,10 +22,16 @@ class Checkoutform extends React.Component {
   }
 
   handleChange(event) {
+    var ccvalidation = document.getElementById('ccvalidation');
     if (event.currentTarget.id === 'name') {
       this.setState({ name: event.target.value });
     } else if (event.currentTarget.id === 'creditcard') {
       this.setState({ creditcard: event.target.value });
+      if (this.state.creditcard.length >= 15) {
+        ccvalidation.innerHTML = 'Valid!';
+      } else {
+        ccvalidation.innerHTML = 'Must be a valid 16 digit credit card number.';
+      }
     } else if (event.currentTarget.id === 'address') {
       this.setState({ address: event.target.value });
     }
@@ -48,7 +54,7 @@ class Checkoutform extends React.Component {
       <>
         <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-2 catalogButton" >
           Back to Catalog</div>
-        <div className="mx-auto col-5" style={{ 'width': '80vw' }}>
+        <div className="card mx-auto col-5 detailsContainer " style={{ 'maxWidth': '940px' }}>
           <h5>Item total: ${this.totalprice()}</h5>
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
@@ -58,13 +64,14 @@ class Checkoutform extends React.Component {
             <div className="form-group">
               <label htmlFor="exampleInputPassword1">Credit Card</label>
               <input type="text" className="form-control form" id="creditcard" placeholder="Enter Credit Card Number" onChange={this.handleChange}/>
+              <label style={{ 'color': 'blue' }} id="ccvalidation" htmlFor="exampleInputEmail1">Must be a valid 16 digit credit card number.</label>
             </div>
             <div className="form-group">
               <label htmlFor="exampleInputPassword1">Shipping Address</label>
               <input type="text" className="form-control form" id="address" aria-describedby="emailHelp" placeholder="Enter Shipping Address" onChange={this.handleChange} />
             </div>
-            <button onClick={() => { this.props.setView('cartConfirmation', {}); this.props.deleteCart(this.props.cartItems); }} type="button" className="updateButton itemCheckout mx-auto" >Place Order</button>
           </form>
+          <button onClick={() => { this.props.setView('cartConfirmation', {}); this.props.deleteCart(this.props.cartItems); }} type="button" className="placeOrder mx-auto" >Place Order</button>
         </div>
       </>
     );
