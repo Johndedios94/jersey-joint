@@ -65,18 +65,18 @@ class ProductDetails extends React.Component {
               </ModalBody>
               <ModalFooter>
                 <Button color="primary" onClick={() => { this.props.setView('cart', {}); this.toggle(); }}>Go To Cart</Button>
-                <Button color="primary" onClick={this.toggle}>Continue Shopping</Button>
+                <Button color="primary" onClick={() => { this.props.setView('catalog', {}); this.toggle(); }}>Continue Shopping</Button>
               </ModalFooter>
             </Modal>
           </div>
           <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-2 catalogButton" >
              Back to Catalog</div>
-          <div className="card my-5 p-4 detailsContainer" style={{ 'maxWidth': '940px' }} >
+          <div className="card my-3 p-4 detailsContainer" style={{ 'maxWidth': '940px' }} >
             <div className="row no-gutters">
-              <div className="col-md-4">
+              <div className="col-lg-4 col-md-7 col-sm-4">
                 <img src={this.state.product[0].image} className="card-img" alt="..." />
               </div>
-              <div className="col-md-8">
+              <div className="col-lg-8 col-md-12 col-sm-8">
                 <div className="detailsInfo">
                   <h5 className="card-title name" >{this.state.product[0].shortDescription}</h5>
                   <p className="card-text price">${(this.state.product[0].price / 100).toFixed(2)}</p>
@@ -86,7 +86,7 @@ class ProductDetails extends React.Component {
                     <button onClick={this.toggleQuantity} id='add' type="button" className="operator">+</button>
                   </div>
                   <button className ="addbutton mt-4" onClick={() => { this.props.addToCart(this.state.product, this.counter); this.toggle(); }} >Add to Cart</button>
-                  <p className="mt-4 longDesc">{this.state.product[0].longDescription}</p>
+                  <p className="mt-4">{this.state.product[0].longDescription}</p>
                 </div>
               </div>
             </div>

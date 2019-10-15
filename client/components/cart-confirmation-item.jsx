@@ -23,18 +23,18 @@ class CartConfirmationItem extends React.Component {
   render() {
     return (
 
-      <div>
-        <div className="card my-2 p-4 detailsContainer" style={{ 'maxWidth': '940px' }} >
+      <div className="thecartcontainer">
+        <div className="card my-2 p-4 cartConfirmationContainer">
           <div className="row no-gutters">
-            <div className="col-md-4">
-              <img src={this.props.image} className="card-img" alt="..." />
+            <div className="col-lg-4 col-md-7 col-sm-4">
+              <img src={this.props.image} className="card-img confirmationimg" alt="..." />
             </div>
-            <div className="col-md-8">
+            <div className="col-lg-8 col-md-12 col-sm-8">
               <div className="detailsInfo">
                 <h5 className="card-title name ">{this.props.shortDescription}</h5>
                 <p className="card-text price">${(this.props.price / 100).toFixed(2)}</p>
                 <div>
-                  <div className="card-text price"> Quantity: {this.state.count}</div>
+                  <div className="card-text" style={{ 'font-family': 'cambria', 'font-size': '1.5rem' }}> Quantity: {this.state.count}</div>
                 </div>
               </div>
             </div>

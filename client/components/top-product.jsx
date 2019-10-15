@@ -4,17 +4,17 @@ class Topproduct extends React.Component {
   render() {
     return (
       <div className="topProducts">
-        <div className="firstTopProduct">
+        <div className="firstTopProduct" style={{ 'maxHeight': '55vh' }}>
           {/* <img className="stockPic" src="/images/drake.jpg" alt=""/> */}
         </div>
-        <div className="top2products">
+        <div className="top2products" style={{ 'maxHeight': '55vh' }}>
           <div className="customerReview">Customer Reviews!</div>
-          <div className="topProductDesc mt-4">
+          <div className="topProductDesc">
             "When it comes to supporting the 6, i always go to the Jersey Joint for my jersey needs.
             Their prices are the best, and their customer service is great! "
             -Drake
           </div>
-          <img className="stars" src="/images/5stars.jpg" alt="" />
+          <div className="stars" ></div>
         </div>
       </div>
 

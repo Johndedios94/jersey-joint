@@ -47,12 +47,12 @@ class CartSummary extends React.Component {
       return (
        <>
           <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-2 catalogButton" >{'Back to catalog'}</div>
-          <div className="scroll">
-            <div className="mx-auto" style={{ 'width': '50vw' }}>
-              <h1 className="cartText">My Cart</h1>
+          <div>
+            <div className="cartText">My Cart Total: ${this.totalprice()}</div>
+            <div className="scroll " >
               <div>{cartItem}</div>
+
               <div className="itemCheckout">
-                <div className="cartPrice">Item total ${this.totalprice()}</div>
                 <button className="button" onClick={() => { this.props.setView('checkout', {}); this.props.cartConfirmation(this.state.finalcart); }}>Checkout</button>
               </div>
               <div className="card" style={{ 'width': '18rem' }}>

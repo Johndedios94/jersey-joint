@@ -30,7 +30,7 @@ class Header extends React.Component {
         <img className='checkout' src='./images/greyCart.png' onClick={() => this.props.setView('cart', {})}></img>
 
         <div className='addItem' onClick={() => this.props.setView('cart', {})} >
-          {this.cartAmount()} items
+          {this.cartAmount()}
         </div>
       </div>
     );
