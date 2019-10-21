@@ -6,6 +6,7 @@ set_exception_handler('error_handling');
 require_once('db_connection.php');
 startup();
 
+
 $query = "DELETE FROM `cartItems`";
 
 mysqli_query($conn, $query);

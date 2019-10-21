@@ -55,7 +55,7 @@ class ProductDetails extends React.Component {
   render() {
     if (this.state.product) {
       return (
-        <div>
+        <div className="background">
           <div>
             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
               <ModalHeader toggle={this.toggle}>Added to Cart!</ModalHeader>
@@ -69,8 +69,8 @@ class ProductDetails extends React.Component {
               </ModalFooter>
             </Modal>
           </div>
-          <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-2 catalogButton" >
-             Back to Catalog</div>
+          <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-0 catalogButton" >
+             Back to catalog</div>
           <div className="card my-3 p-4 detailsContainer" style={{ 'maxWidth': '940px' }} >
             <div className="row no-gutters">
               <div className="col-lg-4 col-md-7 col-sm-4">

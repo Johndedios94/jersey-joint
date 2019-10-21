@@ -51,8 +51,8 @@ class Checkoutform extends React.Component {
   render() {
     console.log('cart item props are', this.props.cartItems);
     return (
-      <>
-        <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-2 catalogButton" >
+      <div className="background">
+        <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-0 catalogButton" >
           Back to Catalog</div>
         <div className="card mx-auto col-5 detailsContainer " style={{ 'maxWidth': '940px' }}>
           <h5>Item total: ${this.totalprice()}</h5>
@@ -73,7 +73,7 @@ class Checkoutform extends React.Component {
           </form>
           <button onClick={() => { this.props.setView('cartConfirmation', {}); this.props.deleteCart(this.props.cartItems); }} type="button" className="placeOrder mx-auto" >Place Order</button>
         </div>
-      </>
+      </div>
     );
   }
 }

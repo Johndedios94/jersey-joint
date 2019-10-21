@@ -1,7 +1,13 @@
-body{
+.background{
    background-image: url("./images/jjbgimage2.jpg");
    background-repeat: no-repeat;
-   background-size: 100%;
+   background-size: cover;
+   background-position: center;
+   min-height: 100vh;
+}
+
+body{
+  background-color: transparent;;
 }
 
 .scroll{
@@ -30,7 +36,7 @@ body{
 
 .jumbotron{
   background-image: url("./images/jerseyjointbg.jpg");
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   height: 95vh;
@@ -70,7 +76,10 @@ body{
   font-family: Brush Script MT, Brush Script Std, cursive;
   background-color: lightgreen;
   color: black;
-  margin-left: 35%;
+  margin-left: 51%;
+  font-size: 1.5rem;
+  margin-top: 1%;
+
 
 }
 .placeOrder{
@@ -118,6 +127,7 @@ body{
   display: flex;
   flex-direction: row;
   border-bottom: 2px solid black;
+  height: 40vh;
 }
 
 .cartText{
@@ -184,6 +194,7 @@ margin-left: 35%;
   font-size: 2em;
   text-align: center;
   margin-top: 0;
+  word-wrap: break-word;
 }
 
 .longDesc{
@@ -298,6 +309,7 @@ margin-left: 35%;
   font-weight: bold;
 }
 
+
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
 /* Portrait */
 @media only screen
@@ -386,7 +398,11 @@ margin-left: 35%;
 
     .orderSummaryText{
       margin-left: 10%;
-      color: white;
+      color: black;
+    }
+
+    .topProducts{
+      height:33vh;
     }
   }
   /* Landscape */
@@ -421,9 +437,9 @@ margin-left: 35%;
       width: 18vw;
     }
 
-    .firstTopProduct{
+    /* .firstTopProduct{
       background-position: 45%, 55%;
-    }
+    } */
 
     .name, .price{
       font-size: 1.5rem;
@@ -513,7 +529,7 @@ margin-left: 35%;
       height: 4vh;
     }
     .name, .price{
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
     .borderItem{
       width: 49vw;
@@ -550,6 +566,19 @@ margin-left: 35%;
     .button{
       margin-left: 44%
     }
+
+    .topProducts{
+      height: 28vh;
+    }
+
+    .cartText{
+      margin-left: 31%;
+    }
+
+    .orderSummaryText{
+      margin-left: 23%;
+      font-size: 2rem;
+    }
 }
 
 @media only screen
@@ -565,9 +594,9 @@ margin-left: 35%;
       background-size: cover;
       background-position: 25%, 75%;
     }
-    .firstTopProduct{
+    /* .firstTopProduct{
       background-position: 45%, 55%;
-    }
+    } */
     .topProductDesc{
       font-size: 1.5rem;
       margin-top: 0;
@@ -616,16 +645,24 @@ margin-left: 35%;
 
     .button{
       font-size: 2rem;
-      margin-left: 44%
+      margin-left: 48%
     }
 
     .orderSummaryText{
-      margin-left: 34%;
+      font-size: 2rem;
+      margin-left: 29%;
     }
 
     .confirmationimg{
       width: 65%;
       height: 22vh;
       margin-left: 24%;
+    }
+     .topProducts{
+      height: 34vh;
+    }
+
+    .cartText{
+      margin-left: 37%;
     }
 }

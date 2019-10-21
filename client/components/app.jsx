@@ -7,6 +7,7 @@ import Checkoutform from './checkoutform';
 import Jumbotron from './Jumbotron';
 import Topproduct from './top-product';
 import CartConfirmation from './cart-confirmation';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -17,7 +18,8 @@ export default class App extends React.Component {
         params: {}
       },
       cart: [],
-      finalCart: []
+      finalCart: [],
+      modal: true
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
@@ -31,6 +33,11 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.getCartItems();
+  }
+  toggle() {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
   }
 
   cartConfirmation(finalCart) {
@@ -165,6 +172,18 @@ export default class App extends React.Component {
     if (this.state.view.name === 'catalog') {
       return (
         <div>
+          <div>
+            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+              <ModalHeader toggle={this.toggle}>Hi Welcome to Jersey Joint!</ModalHeader>
+              <ModalBody>
+                <div className="modaltext">This site is for demonstration purposes only. Please do not input real credit card or shipping information upon checkout! </div>
+                <div className="modaltext">Thank you!</div>
+              </ModalBody>
+              <ModalFooter>
+                <Button color="primary" onClick={() => { this.toggle(); }}>Continue to Jersey Joint</Button>
+              </ModalFooter>
+            </Modal>
+          </div>
           <Jumbotron />
           <Header cartItemCount={this.state.cart} setView={this.setView}/>
           <Topproduct/>
