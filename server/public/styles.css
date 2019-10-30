@@ -179,7 +179,7 @@ margin-left: 35%;
 }
 .name{
  font-family: Brush Script MT, Brush Script Std, cursive;
- font-size: 2rem;
+ font-size: 1.7em;
  text-align: center;
  text-decoration: underline;
 }
@@ -187,7 +187,7 @@ margin-left: 35%;
 .price{
   text-align: center;
   font-family: Brush Script MT, Brush Script Std, cursive;
-  font-size: 2rem;
+  font-size: 1.7em;
 }
 .topProductDesc{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -348,7 +348,7 @@ margin-left: 35%;
     }
 
     .name, .price{
-      font-size: 1.5rem;
+      /* font-size: 1.5rem; */
     }
 
     .jerseyContainer{
@@ -442,7 +442,7 @@ margin-left: 35%;
     } */
 
     .name, .price{
-      font-size: 1.5rem;
+      /* font-size: 1.5rem; */
     }
 
     .jerseyContainer{
@@ -529,7 +529,7 @@ margin-left: 35%;
       height: 4vh;
     }
     .name, .price{
-      font-size: 2rem;
+      /* font-size: 2rem; */
     }
     .borderItem{
       width: 49vw;
@@ -607,7 +607,7 @@ margin-left: 35%;
       height: 5vh;
     }
     .name, .price{
-      font-size: 2rem;
+      /* font-size: 2rem; */
     }
     .borderItem{
       width: 49vw;

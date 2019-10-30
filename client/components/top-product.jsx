@@ -14,7 +14,7 @@ class Topproduct extends React.Component {
             Their prices are the best, and their customer service is great! "
             -Drake
           </div>
-          <div className="stars" ></div>
+          {/* <div className="stars" ></div> */}
         </div>
       </div>
 
