@@ -21,7 +21,7 @@ if (empty($_SESSION['cartId'])) {
   $cartId = intval($_SESSION['cartId']);
 }
 
-  $query = "SELECT cartItems.count, products.id, products.name, products.price, products.shortDescription, images.url FROM `cartItems` JOIN `products` ON cartItems.productID = products.id JOIN `images` ON `products`.id = images.productId WHERE cartItems.id IN (1) LIMIT 1";
+  $query = "SELECT cartItems.count, products.id, products.name, products.price, products.shortDescription, images.image FROM `cartItems` JOIN `products` ON cartItems.productID = products.id JOIN `images` ON `products`.id = images.productId";
   // $cartID = $_SESSION['cartId'];
 
   // $result = mysqli_connect($conn, $query);
@@ -32,6 +32,7 @@ if (empty($_SESSION['cartId'])) {
 
   $result = mysqli_query($conn, $query);
   $data = [];
+  // var_dump("result is ", $result);
   while($row = mysqli_fetch_assoc($result)) {  // mysqli_fetch_assoc iterates through array until data runs out
     $data[] = $row;                             // then while tests a falsey value which stops the loop
   }

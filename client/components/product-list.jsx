@@ -8,7 +8,7 @@ class ProductList extends React.Component {
     this.getProducts = this.getProducts.bind(this);
   }
   componentDidMount() {
-    // this.getProducts();
+    this.getProducts();
   }
   getProducts() {
     fetch('/api/products.php')
@@ -21,10 +21,13 @@ class ProductList extends React.Component {
   }
 
   render() {
+    console.log(' product list is ', this.state.products);
+    // console.log(' id is  ', this.state.products[0].image);
     const product = this.state.products.map(item => {
+      // console.log(' id is  ', this.state.products[0].id );
       return (
         <ProductListItem
-          key={item.id}
+          id={item.id}
           name={item.name}
           price={item.price}
           image={item.image}

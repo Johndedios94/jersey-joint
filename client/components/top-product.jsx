@@ -5,14 +5,16 @@ class Topproduct extends React.Component {
     return (
       <div className="topProducts">
         <div className="firstTopProduct">
-          <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQZCvWS6uChVhFIuMxqfrmLvog-32WpT2rf32qDuF-CQzIVtBB0KPEII3_8ADlh8pQM7Jl2Z9ANRXQIoQBE1Sk8FOCw25gYJTkxHw9W6YN3qj1EYU5fjy29&usqp=CAE" alt=""/>
+          {/* <img className="stockPic" src="/images/drake.jpg" alt=""/> */}
         </div>
-        <div className="topProductsText">
-          <h1>Limited Edition!</h1>
-          <div classNAme="topProductDesc">
-            Kobe Bryants Limited Edition Lower Merion High School Jersey.
-            This special jersey is now available for half the price, with twice the swag it usually comes with.
+        <div className="top2products" >
+          <div className="customerReview">Customer Reviews!</div>
+          <div className="topProductDesc">
+            "When it comes to supporting the 6, i always go to the Jersey Joint for my jersey needs.
+            Their prices are the best, and their customer service is great! "
+            -Drake
           </div>
+          {/* <div className="stars" ></div> */}
         </div>
       </div>
 

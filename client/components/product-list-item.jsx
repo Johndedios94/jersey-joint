@@ -1,14 +1,19 @@
 import React from 'react';
 
 function ProductListItem(props) {
+  // console.log('list item props are ', props);
+  // console.log('image is ', props.key);
+  // console.log(' id is ', props.id);
   return (
-    <div className="card card-style borderItem" style={{ 'width': '25rem', 'height': '55%' }}>
-      <img className="card-img-top" style={{ 'height': '22rem' }} src={props.image} alt="..." />
-      <div className="card-body" onClick={() => props.setView('details', { id: props.id })}>
-        <h5 className="card-title">{props.name}</h5>
-        <p className="card-text">${(props.price / 100).toFixed(2)}</p>
-        <p className="card-text">{props.shortDescription}</p>
-        <p className="card-text">{props.longDescription}</p>
+    <div className="col-lg-3">
+      <div onClick={() => props.setView('details', { id: props.id })} className="card card-style borderItem my-2" >
+        <img className="card-img-top" src={props.image} alt="..." />
+        <div className="card-body carditem">
+          <h5 className="name">{props.name}</h5>
+          <p className="price">${(props.price / 100).toFixed(2)}</p>
+          {/* <p className="card-text">{props.shortDescription}</p> */}
+          {/* <p className="card-text">{props.longDescription}</p> */}
+        </div>
       </div>
     </div>
   );

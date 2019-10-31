@@ -7,10 +7,13 @@ if(!INTERNAL){
 };
 
 $bodyData = getBodyData();
-$id = $bodyData["id"];
+// var_dump("body data is ", $bodyData);
+// var_dump("body data at body data ", $bodyData["product"][0]["id"]);
+$id = $bodyData["product"][0]["id"];
+$count = $bodyData["count"];
 
 if($id <= 0){
-  throw new Exception("id iz invalid");
+  throw new Exception("id is invalid");
 };
 
 if(array_key_exists('cartId', $_SESSION)){
@@ -55,7 +58,7 @@ if(!$cartID){
   $_SESSION['cartId'] = $cartID;
 }
 $insertTableQuery = "INSERT INTO `cartItems`(`count`, `productID`, `price`, `added`, `cartID`)
-VALUES (1, $id, $price, NOW(), $cartID ) ON DUPLICATE KEY UPDATE `count`=`count`+ 1";
+VALUES ($count, $id, $price, NOW(), $cartID ) ON DUPLICATE KEY UPDATE `count`=`count`+ $count";
 
 
 $inserResult = mysqli_query($conn, $insertTableQuery);
@@ -68,8 +71,5 @@ if(mysqli_affected_rows($conn) === 0){
     $commit = "COMMIT";
     mysqli_query($conn, $commit);
   };
-
-
-
 
 ?>

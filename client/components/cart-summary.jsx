@@ -2,20 +2,30 @@ import React from 'react';
 import CartSummaryItem from './cart-summary-item';
 
 class CartSummary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      finalcart: this.props.cartItems
+    };
+  }
   totalprice() {
     var total = 0;
     for (var i = 0; i < this.props.cartItems.length; i++) {
-      total += this.props.cartItems[i].price;
+      total += parseInt(this.props.cartItems[i].price * this.props.cartItems[i].count);
     }
     var cartTotal = (total / 100).toFixed(2);
     return cartTotal;
   }
 
   render() {
+    console.log('cart summary item props ', this.props.cartItems);
     const cartItem = this.props.cartItems.map(item => {
       return (
         <CartSummaryItem
-          key={item.id}
+          deleteItem={this.props.deleteItem}
+          updateCart={this.props.updateCart}
+          count={item.count}
+          itemid={item.id}
           name={item.name}
           price={item.price}
           image={item.image}
@@ -26,23 +36,33 @@ class CartSummary extends React.Component {
     });
     if (!this.props.cartItems.length) {
       return (
-        <>
-          <h5 onClick={() => { this.props.setView('catalog', {}); }} className="mt-5" >{'Back to catalog'}</h5>
+        <div className="background">
+          <h5 onClick={() => { this.props.setView('catalog', {}); }} className="mt-0 catalogButton" >{'Back to catalog'}</h5>
           <div className="mx-auto" style={{ 'width': '50vw' }}>
-            <h1>Your cart is Empty</h1>
+            <h1 className="price">Your cart is Empty</h1>
           </div>
-        </>
+        </div>
       );
     } else {
       return (
-     <>
-      <h5 onClick={() => { this.props.setView('catalog', {}); }} className="mt-5" >{'Back to catalog'}</h5>
-      <div className="mx-auto" style={{ 'width': '50vw' }}>
-        <h1>My Cart</h1>
-        <div>{cartItem}</div>
-        <h5>Item total ${this.totalprice()} <button className="button" onClick={() => { this.props.setView('checkout', {}); }}>Checkout</button></h5>
-      </div>
-      </>
+        <div className="background">
+          <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-0 catalogButton" >{'Back to catalog'}</div>
+          <div>
+            <div className="cartText">My Cart Total: ${this.totalprice()}</div>
+            <div className="scroll " >
+              <div>{cartItem}</div>
+
+              {/* <div className="itemCheckout">
+                <button className="button" onClick={() => { this.props.setView('checkout', {}); this.props.cartConfirmation(this.state.finalcart); }}>Checkout</button>
+              </div> */}
+              <div className="card" style={{ 'width': '18rem', 'border': 'none' }}>
+              </div>
+            </div>
+            <div className="itemCheckout">
+              <button className="button" onClick={() => { this.props.setView('checkout', {}); this.props.cartConfirmation(this.state.finalcart); }}>Checkout</button>
+            </div>
+          </div>
+        </div>
       );
     }
   }

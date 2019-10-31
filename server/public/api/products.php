@@ -6,23 +6,32 @@ set_exception_handler('error_handling');
 require_once('db_connection.php');
 startup();
 
-$whereClause = "";
+$query = "";
 if(empty($_GET['id'])){
-  $whereClause = " ";
+  $query = "SELECT products.id, products.name, products.price, products.shortDescription, GROUP_CONCAT(images.image) AS image
+FROM products JOIN images ON products.id =
+images.productId
+GROUP BY images.productid";
 } else if(is_numeric($_GET['id'])){
-  $whereClause = "WHERE `id` =" . $_GET['id'];
-} else{
+  $id = ($_GET['id']);
+  $query = "SELECT products.id, products.name, products.price, products.shortDescription, products.longDescription, GROUP_CONCAT(images.image) AS image
+  FROM products JOIN images ON products.id =
+  images.productId
+  WHERE products.id = $id
+  GROUP BY images.productid";
+} else {
   throw new Exception("id needs to be a number");
 };
 
 // var_dump("id is " , $_GET['products.id']);
 
-$query = "SELECT products.id, products.name, products.price, products.shortDescription, GROUP_CONCAT(images.url) AS imageurl
-FROM products JOIN images ON products.id =
-images.productId
-GROUP BY images.productid";
+// $query = "SELECT products.id, products.name, products.price, products.shortDescription, GROUP_CONCAT(images.image) AS image
+// FROM products JOIN images ON products.id =
+// images.productId
+// GROUP BY images.productid";
 
 $result = $conn->query($query);
+// var_dump("result is ", $result);
 if(!$result){
   throw new Exception(mysqli_connect_error($conn));
 };
