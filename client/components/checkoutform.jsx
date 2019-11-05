@@ -10,6 +10,10 @@ class Checkoutform extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.validInputsCheck = this.validInputCheck.bind(this);
+    // var nameCheck = false;
+    // var cardCheck = false;
+    // var addressCheck = false;
   }
 
   totalprice() {
@@ -22,6 +26,7 @@ class Checkoutform extends React.Component {
   }
 
   handleChange(event) {
+    event.preventDefault();
     var ccvalidation = document.getElementById('ccvalidation');
     if (event.currentTarget.id === 'name') {
       this.setState({ name: event.target.value });
@@ -48,6 +53,17 @@ class Checkoutform extends React.Component {
     this.props.placeOrder(orderObj);
   }
 
+  validInputCheck() {
+    debugger;
+    var error = document.getElementById('error');
+    if (this.state.name && this.state.creditcard && this.state.address) {
+      this.props.setView('cartConfirmation', {});
+      this.props.deleteCart(this.props.cartItems);
+    } else {
+      error.innerHTML = 'Please fill out all fields with valid information!';
+    }
+  }
+
   render() {
     console.log('cart item props are', this.props.cartItems);
     return (
@@ -70,8 +86,9 @@ class Checkoutform extends React.Component {
               <label htmlFor="exampleInputPassword1">Shipping Address</label>
               <input type="text" className="form-control form" id="address" aria-describedby="emailHelp" placeholder="Enter Shipping Address" onChange={this.handleChange} />
             </div>
+            <label id="error"></label>
           </form>
-          <button onClick={() => { this.props.setView('cartConfirmation', {}); this.props.deleteCart(this.props.cartItems); }} type="button" className="placeOrder mx-auto" >Place Order</button>
+          <button onClick={() => { this.validInputCheck(); }} type="button" className="placeOrder mx-auto" >Place Order</button>
         </div>
       </div>
     );

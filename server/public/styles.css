@@ -55,11 +55,12 @@ body{
 }
 
 .checkout{
-  font-family:  Brush Script MT, Brush Script Std, cursive;
-  width: 45px;
-  max-width: 100%;
-  max-height: 450px;
-  font-size: 1.5rem
+  /* font-family:  Brush Script MT, Brush Script Std, cursive; */
+  width: 2vw;
+  /* height: 100%; */
+  /* max-width: 100%;
+  max-height: 450px; */
+  /* font-size: 1.5rem */
 }
 
 .addItem{
@@ -114,13 +115,13 @@ body{
 }
 
 
-.jerseyContainer{
+/* .jerseyContainer{
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-}
+} */
 
 .topProducts{
   background-color: white;
@@ -146,6 +147,7 @@ body{
   background-image: url("/images/drake.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   /* border: 2px solid silver;
   text-align: center;
   /* flex: 3; */
@@ -211,8 +213,8 @@ margin-left: 35%;
 .borderItem {
   border: 3px  solid silver;
   cursor: pointer;
-  width: 23vw;
-  height: 53%
+  /* width: 23vw;
+  height: 53% */
 }
 
 .total{
@@ -240,10 +242,10 @@ margin-left: 35%;
   margin: auto;
   border: 2px solid black;
 }
-
+/*
 .detailsContainer{
   max-width: 100%
-}
+} */
 
 .cartConfirmationContainer{
   max-width: 55vw;
@@ -289,7 +291,7 @@ margin-left: 35%;
 .operator{
   background-color: rgb(74, 181, 216);
   font-size: 1.5rem;
-  width: 2.5vw;
+  width: 35px;
   border-radius: 10%;
   color: white;
   text-align: center;
@@ -328,7 +330,10 @@ margin-left: 35%;
     .jumbotronText{
       font-size: 4rem;
     }
-
+    .checkout{
+      width: 9vw;
+      height: 6vh;
+    }
     .customerReview{
       font-size: 1.5rem;
     }
@@ -355,9 +360,9 @@ margin-left: 35%;
       flex-direction: column;
     }
 
-    .borderItem{
+    /* .borderItem{
       width: 80vw;
-    }
+    } */
 
     .detailsContainer{
       max-width: 55%;
@@ -423,6 +428,11 @@ margin-left: 35%;
       font-size: 4rem;
     }
 
+    .checkout{
+      width: 6vw;
+      height: 12vh;
+    }
+
     .customerReview{
       font-size: 1.5rem;
     }
@@ -449,9 +459,9 @@ margin-left: 35%;
       flex-direction: row;
     }
 
-    .borderItem{
+    /* .borderItem{
       width: 49vw;
-    }
+    } */
 
     .detailsContainer{
       max-width: 55%;
@@ -516,9 +526,14 @@ margin-left: 35%;
       background-size: cover;
       background-position: 25%, 75%;
     }
+
+    .checkout{
+      width: 5vw;
+    }
     .firstTopProduct{
       background-position: 45%, 55%;
     }
+
     .topProductDesc{
       font-size: 1.5rem;
       margin-top: 0;
@@ -531,9 +546,9 @@ margin-left: 35%;
     .name, .price{
       /* font-size: 2rem; */
     }
-    .borderItem{
+    /* .borderItem{
       width: 49vw;
-    }
+    } */
 
     .detailsContainer{
       max-width: 55%;
@@ -594,6 +609,10 @@ margin-left: 35%;
       background-size: cover;
       background-position: 25%, 75%;
     }
+
+    .checkout{
+      width: 3vw;
+    }
     /* .firstTopProduct{
       background-position: 45%, 55%;
     } */
@@ -609,9 +628,9 @@ margin-left: 35%;
     .name, .price{
       /* font-size: 2rem; */
     }
-    .borderItem{
+    /* .borderItem{
       width: 49vw;
-    }
+    } */
 
     .detailsContainer{
       max-width: 55%;

@@ -1,16 +1,25 @@
 import React from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class CartSummaryItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: parseInt(this.props.count)
+      count: parseInt(this.props.count),
+      modal: false
     };
     this.toggleQuantity = this.toggleQuantity.bind(this);
-
+    this.toggle = this.toggle.bind(this);
     // this.quantity = parseInt(this.props.count);
 
   }
+
+  toggle() {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+  }
+
   toggleQuantity() {
     var count;
     if (event.target.id === 'add') {
@@ -30,6 +39,11 @@ class CartSummaryItem extends React.Component {
     return (
 
       <div className="thecartcontainer">
+        <div>
+          <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+            <ModalHeader toggle={this.toggle}>Cart updated!</ModalHeader>
+          </Modal>
+        </div>
         <div className="card my-2 p-4 cartSummaryContainer" >
           <div className="row no-gutters">
             <div className="col-lg-4 col-md-7 col-sm-4">
@@ -48,7 +62,7 @@ class CartSummaryItem extends React.Component {
                 </div>
                 <div>
                   <button className="deleteButton mt-4 mr-2" onClick={() => { this.props.deleteItem(this.props.itemid); }} >Delete</button>
-                  <button className="updateButton mt-4" onClick={() => { this.props.updateCart(this.props.itemid, this.state.count); }} >Update</button>
+                  <button className="updateButton mt-4" onClick={() => { this.props.updateCart(this.props.itemid, this.state.count); this.toggle(); }} >Update</button>
                 </div>
               </div>
             </div>
