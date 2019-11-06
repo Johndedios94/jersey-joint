@@ -5,7 +5,7 @@ function ProductListItem(props) {
   // console.log('image is ', props.key);
   // console.log(' id is ', props.id);
   return (
-    <div className="col-sm-col-lg-3">
+    <div className="col-xs-6 col-sm-6 col-md-6 col-lg-3">
       <div onClick={() => props.setView('details', { id: props.id })} className="card card-style borderItem my-2" >
         <img className="card-img-top" src={props.image} alt="..." />
         <div className="card-body carditem">
