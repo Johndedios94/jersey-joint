@@ -75,11 +75,11 @@ class Checkoutform extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label htmlFor="exampleInputEmail1">Name</label>
-              <input type="name" className="form-control form" id="name" placeholder="Enter Name" onChange={this.handleChange}/>
+              <input type="name" className="form-control form" id="name" placeholder="Enter Name" onChange={this.handleChange} />
             </div>
             <div className="form-group">
               <label htmlFor="exampleInputPassword1">Credit Card</label>
-              <input type="text" className="form-control form" id="creditcard" placeholder="Enter Credit Card Number" onChange={this.handleChange}/>
+              <input type="text" className="form-control form" id="creditcard" placeholder="Enter Credit Card Number" onChange={this.handleChange} />
               <label style={{ 'color': 'blue' }} id="ccvalidation" htmlFor="exampleInputEmail1">Must be a valid 16 digit credit card number.</label>
             </div>
             <div className="form-group">

@@ -123,14 +123,15 @@ export default class App extends React.Component {
     fetch('/api/cart.php')
       .then(response => response.json())
       .then(data => {
-        this.setState({ cart: data })
+        this.setState({
+          cart: data
+        })
         ;
       });
 
   }
 
   deleteCart() {
-    debugger;
     var deletedCart = [];
     deletedCart.push(fetch('api/cart_delete.php', {
       method: 'DELETE',
@@ -185,37 +186,37 @@ export default class App extends React.Component {
             </Modal>
           </div>
           <Jumbotron />
-          <Header cartItemCount={this.state.cart} setView={this.setView}/>
-          <Topproduct/>
+          <Header cartItemCount={this.state.cart} setView={this.setView} />
+          <Topproduct />
           <ProductList setView={this.setView} />
         </div>
       );
     } else if (this.state.view.name === 'details') {
       return (
         <div>
-          <Header cartItemCount={this.state.cart} setView={this.setView}/>
-          <ProductDetails addToCart={this.addToCart} view={this.state.view.params} setView={this.setView}/>
+          <Header cartItemCount={this.state.cart} setView={this.setView} />
+          <ProductDetails addToCart={this.addToCart} view={this.state.view.params} setView={this.setView} />
         </div>
       );
     } else if (this.state.view.name === 'cart') {
       return (
         <div>
           <Header cartItemCount={this.state.cart} setView={this.setView} />
-          <CartSummary cartConfirmation={this.cartConfirmation} deleteItem={this.deleteItem} updateCart={this.updateCart} cartItems={this.state.cart} setView={this.setView}/>
+          <CartSummary getCart={this.getCartItems}cartConfirmation={this.cartConfirmation} deleteItem={this.deleteItem} updateCart={this.updateCart} cartItems={this.state.cart} setView={this.setView} />
         </div>
       );
     } else if (this.state.view.name === 'checkout') {
       return (
         <div>
           <Header cartItemCount={this.state.cart} setView={this.setView} />
-          <Checkoutform deleteCart={this.deleteCart} cartItems={this.state.cart} setView={this.setView} placeOrder={this.placeOrder}/>
+          <Checkoutform deleteCart={this.deleteCart} cartItems={this.state.cart} setView={this.setView} placeOrder={this.placeOrder} />
         </div>
       );
     } else if (this.state.view.name === 'cartConfirmation') {
       return (
         <div>
           <Header cartItemCount={this.state.cart} setView={this.setView} />
-          <CartConfirmation finalCart={this.state.finalCart} deleteCart={this.deleteCart} cartItems={this.state.cart} setView={this.setView} placeOrder={this.placeOrder} />
+          <CartConfirmation finalCart={this.state.finalCart} deleteCart={this.deleteCart} cartItems={this.state.cart} setView={this.setView} placeOrder={this.placeOrder}/>
         </div>
       );
     }
