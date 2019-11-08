@@ -59,7 +59,9 @@ class CartSummary extends React.Component {
               </div>
             </div>
             <div className="itemCheckout">
-              <button className="button" onClick={() => { this.props.setView('checkout', {}); this.props.cartConfirmation(this.state.finalcart); }}>Checkout</button>
+              <button className="button" onClick={() => {
+ this.props.setView('checkout', {}); this.props.cartConfirmation(this.props.cartItems);// test
+              }}>Checkout</button>
             </div>
           </div>
         </div>
