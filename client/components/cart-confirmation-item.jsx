@@ -7,9 +7,6 @@ class CartConfirmationItem extends React.Component {
       count: parseInt(this.props.count)
     };
     this.toggleQuantity = this.toggleQuantity.bind(this);
-
-    // this.quantity = parseInt(this.props.count);
-
   }
   toggleQuantity() {
     if (event.target.id === 'add') {
@@ -22,7 +19,6 @@ class CartConfirmationItem extends React.Component {
   }
   render() {
     return (
-
       <div className="thecartcontainer">
         <div className="card my-2 p-4 cartConfirmationContainer">
           <div className="row no-gutters">

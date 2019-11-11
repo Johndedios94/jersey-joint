@@ -18,7 +18,6 @@ class CartSummary extends React.Component {
   }
 
   render() {
-    console.log('cart summary item props ', this.props.cartItems);
     const cartItem = this.props.cartItems.map(item => {
       return (
         <CartSummaryItem
@@ -51,16 +50,10 @@ class CartSummary extends React.Component {
             <div className="cartText">My Cart Total: ${this.totalprice()}</div>
             <div className="scroll " >
               <div>{cartItem}</div>
-
-              {/* <div className="itemCheckout">
-                <button className="button" onClick={() => { this.props.setView('checkout', {}); this.props.cartConfirmation(this.state.finalcart); }}>Checkout</button>
-              </div> */}
-              <div className="card" style={{ 'width': '18rem', 'border': 'none' }}>
-              </div>
             </div>
             <div className="itemCheckout">
               <button className="button" onClick={() => {
- this.props.setView('checkout', {}); this.props.cartConfirmation(this.props.cartItems);// test
+                this.props.setView('checkout', {}); this.props.cartConfirmation(this.props.cartItems);// test
               }}>Checkout</button>
             </div>
           </div>

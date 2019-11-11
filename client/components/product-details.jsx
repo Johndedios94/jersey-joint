@@ -15,17 +15,13 @@ class ProductDetails extends React.Component {
     this.toggle = this.toggle.bind(this);
   }
   componentDidMount() {
-    console.log('view is ', this.props.view);
     fetch('/api/products.php?id=' + this.props.view.id)
       .then(response => response.json())
       .then(data => {
-        console.log('data is ', data);
         this.setState({
           product: data
         });
-      }
-
-      );
+      });
   }
 
   toggle() {
@@ -70,22 +66,24 @@ class ProductDetails extends React.Component {
             </Modal>
           </div>
           <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-0 catalogButton" >
-             Back to catalog</div>
-          <div className="card my-3 p-4 detailsContainer" style={{ 'maxWidth': '940px' }} >
+            Back to catalog</div>
+          <div className="card my-3 p-4 detailsContainer"
+            style={{ 'maxWidth': '1240px' }}
+          >
             <div className="row no-gutters">
               <div className="col-lg-4 col-md-7 col-sm-4">
-                <img src={this.state.product[0].image} className="card-img" alt="..." />
+                <img src={this.state.product[0].image} className="card-img" alt="jersey" />
               </div>
-              <div className="col-lg-8 col-md-12 col-sm-8">
+              <div className="col-lg-8 col-md-7 col-sm-4">
                 <div className="detailsInfo">
                   <h5 className="card-title name" >{this.state.product[0].shortDescription}</h5>
                   <p className="card-text price">${(this.state.product[0].price / 100).toFixed(2)}</p>
                   <div>
-                    <button onClick={this.toggleQuantity} id='subtract'type="button" className="operator">-</button>
+                    <button onClick={this.toggleQuantity} id='subtract' type="button" className="operator">-</button>
                     <div id="amount">{this.counter}</div>
                     <button onClick={this.toggleQuantity} id='add' type="button" className="operator">+</button>
                   </div>
-                  <button className ="addbutton mt-4" onClick={() => { this.props.addToCart(this.state.product, this.counter); this.toggle(); }} >Add to Cart</button>
+                  <button className="addbutton mt-4" onClick={() => { this.props.addToCart(this.state.product, this.counter); this.toggle(); }} >Add to Cart</button>
                   <p className="mt-4">{this.state.product[0].longDescription}</p>
                 </div>
               </div>
@@ -93,7 +91,6 @@ class ProductDetails extends React.Component {
           </div>
         </div>
       );
-
     } else {
       return null;
     }
@@ -101,26 +98,3 @@ class ProductDetails extends React.Component {
 }
 
 export default ProductDetails;
-
-// <div className="col-md-4">
-//   <div className="info-window d-flex justify-content-center" style={{ 'width': '100vw' }}>
-//     <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-5" >{'Back to catalog'}</div>
-
-//     <img className="mt-5 ml-5" style={{ 'height': '40vh', 'width': '20vw' }} src={this.state.product[0].image} alt="Bad Image" />
-//     <div className="ml-5" style={{ 'width': '10vw' }}>
-//       <h5 className="mt-5">{this.state.product[0].name}</h5>
-//       <div>
-//         <button id='subtract' onClick={this.toggleQuantity}>-</button>
-//         <div id="amount">{this.counter}</div>
-//         <button id='add' onClick={this.toggleQuantity}>+</button>
-//       </div>
-//       <button onClick={() => { this.props.addToCart(this.state.product); }} >Add to Cart</button>
-//       <p className="mt-5 text-secondary">$ {((this.state.product[0].price) / 100).toFixed(2)}</p>
-//       <p className="mt-5">{this.state.product[0].shortDescription}</p>
-//     </div>
-
-//   </div>
-//   <div className="d-flex justify-content-center" style={{ 'width': '100vw' }}>
-//     <p className="mt-5 col-5 col-md-5">{this.state.product.longDescription}</p>
-//   </div>
-// </div>

@@ -11,9 +11,6 @@ class Checkoutform extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.validInputsCheck = this.validInputCheck.bind(this);
-    // var nameCheck = false;
-    // var cardCheck = false;
-    // var addressCheck = false;
   }
 
   totalprice() {
@@ -54,7 +51,6 @@ class Checkoutform extends React.Component {
   }
 
   validInputCheck() {
-    debugger;
     var error = document.getElementById('error');
     if (this.state.name && this.state.creditcard && this.state.address) {
       this.props.setView('cartConfirmation', {});
@@ -65,7 +61,6 @@ class Checkoutform extends React.Component {
   }
 
   render() {
-    console.log('cart item props are', this.props.cartItems);
     return (
       <div className="background">
         <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-0 catalogButton" >
