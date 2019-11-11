@@ -10,8 +10,6 @@ class CartSummaryItem extends React.Component {
     };
     this.toggleQuantity = this.toggleQuantity.bind(this);
     this.toggle = this.toggle.bind(this);
-    // this.quantity = parseInt(this.props.count);
-
   }
 
   toggle() {
@@ -37,14 +35,13 @@ class CartSummaryItem extends React.Component {
   }
   render() {
     return (
-
       <div className="thecartcontainer">
         <div>
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
             <ModalHeader toggle={this.toggle}>Cart updated!</ModalHeader>
           </Modal>
         </div>
-        <div className="card my-2 p-4 cartSummaryContainer" >
+        <div className="card my-2 p-4 cartSummaryContainer" style={{ 'maxWidth': '1240px' }} >
           <div className="row no-gutters">
             <div className="col-lg-4 col-md-7 col-sm-4">
               <img src={this.props.image} className="card-img" alt="..." />
@@ -55,9 +52,7 @@ class CartSummaryItem extends React.Component {
                 <p className="card-text price">${(this.props.price / 100).toFixed(2)}</p>
                 <div>
                   <button onClick={this.toggleQuantity} id='subtract' type="button" className="operator">-</button>
-                  {/* <button id='subtract' onClick={this.toggleQuantity}>-</button> */}
                   <div id="amount"> {this.state.count}</div>
-                  {/* <button id='add' onClick={this.toggleQuantity}>+</button> */}
                   <button onClick={this.toggleQuantity} id='add' type="button" className="operator">+</button>
                 </div>
                 <div>

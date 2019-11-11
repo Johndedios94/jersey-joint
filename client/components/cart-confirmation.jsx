@@ -12,11 +12,10 @@ class CartConfirmation extends React.Component {
   }
 
   render() {
-    console.log('cart summary item props ', this.props.finalCart);
     const cartItem = this.props.finalCart.map(item => {
       return (
         <CartConfirmationItem
-          key = {item}
+          key={item}
           count={item.count}
           item={item.id}
           name={item.name}
@@ -34,7 +33,6 @@ class CartConfirmation extends React.Component {
         <div className="mx-auto">
           <h1 className="name">Thank you for your purchase!</h1>
           <div className="orderSummaryText">Order Summary: Your total is ${this.totalprice()}</div>
-          {/* <h5 className="total">Item total ${this.totalprice()}</h5> */}
           <div className="scroll">
             <div>{cartItem}</div>
           </div>
@@ -42,7 +40,6 @@ class CartConfirmation extends React.Component {
       </div>
     );
   }
-  // }
 }
 
 export default CartConfirmation;

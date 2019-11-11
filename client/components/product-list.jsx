@@ -14,17 +14,13 @@ class ProductList extends React.Component {
     fetch('/api/products.php')
       .then(response => { return response.json(); })
       .then(data => {
-        console.log('data', data);
         this.setState({ products: data });
       });
 
   }
 
   render() {
-    console.log(' product list is ', this.state.products);
-    // console.log(' id is  ', this.state.products[0].image);
     const product = this.state.products.map(item => {
-      // console.log(' id is  ', this.state.products[0].id );
       return (
         <ProductListItem
           id={item.id}
@@ -39,9 +35,7 @@ class ProductList extends React.Component {
     });
     return (
       <div className="row" >
-
         {product}
-
       </div>);
   }
 }

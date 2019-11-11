@@ -47,7 +47,6 @@ export default class App extends React.Component {
   }
 
   deleteItem(id) {
-    console.log('id is ', id);
     var updateCart = [];
     updateCart.push(fetch('/api/cart_deleteItem.php', {
       method: 'DELETE',
@@ -62,8 +61,6 @@ export default class App extends React.Component {
     Promise.allSettled(updateCart).then(this.getCartItems);
   }
   updateCart(id, count) {
-    console.log('id is ', id);
-    console.log('count is ', count);
     var updateCart = [];
     updateCart.push(fetch('/api/cart_update_quantity.php', {
       method: 'PUT',
@@ -94,8 +91,6 @@ export default class App extends React.Component {
       });
   }
   addToCart(prodct, count) {
-    console.log('product is ', prodct);
-    console.log('count is ', count);
     var cartAdd = [];
     cartAdd.push(fetch('/api/cart.php', {
       method: 'POST',
@@ -108,12 +103,6 @@ export default class App extends React.Component {
       }
     })
       .then(response => response.json()));
-    // .then(json => {
-    //   var newCart = this.state.cart.slice(0);
-    //   newCart.push(json);
-    //   this.setState({ cart: newCart });
-
-    // });
     Promise.allSettled(cartAdd).then(this.getCartItems);
     console.log('added and got');
 
@@ -125,8 +114,7 @@ export default class App extends React.Component {
       .then(data => {
         this.setState({
           cart: data
-        })
-        ;
+        });
       });
 
   }
@@ -140,26 +128,7 @@ export default class App extends React.Component {
     })
       .then(response => response.json));
     Promise.allSettled(deletedCart).then(this.getCartItems);
-
-    console.log('cart data after delete is ', this.state.cart);
-
   }
-
-  // deleteItem(id) {
-
-  //   console.log("hey yo the id is ", id)
-  //   fetch(`/api/deleteFromShoppingList.php`, {
-  //     method: 'DELETE',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify(id)
-  //   })
-  //     .then(res => res.json()) // OR res.json()
-  //     .then(data => {
-  //       console.log("the res is ", data)
-  //       this.setState({ shoppingList: data })
-  //     });
-  //   this.getAllItems();
-  // }
 
   setView(name, params) {
     this.setState({
@@ -169,6 +138,7 @@ export default class App extends React.Component {
       }
     });
   }
+
   render() {
     if (this.state.view.name === 'catalog') {
       return (
@@ -202,7 +172,7 @@ export default class App extends React.Component {
       return (
         <div>
           <Header cartItemCount={this.state.cart} setView={this.setView} />
-          <CartSummary getCart={this.getCartItems}cartConfirmation={this.cartConfirmation} deleteItem={this.deleteItem} updateCart={this.updateCart} cartItems={this.state.cart} setView={this.setView} />
+          <CartSummary getCart={this.getCartItems} cartConfirmation={this.cartConfirmation} deleteItem={this.deleteItem} updateCart={this.updateCart} cartItems={this.state.cart} setView={this.setView} />
         </div>
       );
     } else if (this.state.view.name === 'checkout') {
@@ -216,7 +186,7 @@ export default class App extends React.Component {
       return (
         <div>
           <Header cartItemCount={this.state.cart} setView={this.setView} />
-          <CartConfirmation finalCart={this.state.finalCart} deleteCart={this.deleteCart} cartItems={this.state.cart} setView={this.setView} placeOrder={this.placeOrder}/>
+          <CartConfirmation finalCart={this.state.finalCart} deleteCart={this.deleteCart} cartItems={this.state.cart} setView={this.setView} placeOrder={this.placeOrder} />
         </div>
       );
     }

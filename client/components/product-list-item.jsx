@@ -1,9 +1,6 @@
 import React from 'react';
 
 function ProductListItem(props) {
-  // console.log('list item props are ', props);
-  // console.log('image is ', props.key);
-  // console.log(' id is ', props.id);
   return (
     <div className="col-xs-6 col-sm-6 col-md-6 col-lg-3">
       <div onClick={() => props.setView('details', { id: props.id })} className="card card-style borderItem my-2" >
@@ -11,8 +8,6 @@ function ProductListItem(props) {
         <div className="card-body carditem">
           <h5 className="name">{props.name}</h5>
           <p className="price">${(props.price / 100).toFixed(2)}</p>
-          {/* <p className="card-text">{props.shortDescription}</p> */}
-          {/* <p className="card-text">{props.longDescription}</p> */}
         </div>
       </div>
     </div>
