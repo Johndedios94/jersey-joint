@@ -2,11 +2,26 @@
 
 A full stack LAMP & React shopping cart app.
 
-## Introduction
+## Technologies Used
+- JavaScript
+- React
+- PHP
+- MySQL
+- BootStrap 4
+- CSS3
 
-For this project, you will be building a single-page React application and a dynamic PHP API.
 
-## Getting Started
+## Live Demo
+Try the application live at [jerseyjoint.johndedios.net](http://jerseyjoint.johndedios.net)
+
+## Features
+- User can add products to cart
+- User can update/delete items in cart
+- User can checkout from cart and see copy of order
+
+## Preview
+
+![jerseyJoint](/server/public/images/portfolioJerseyJointgif.gif)
 
 1. Fork this repository to your GitHub account and clone the fork to your local `lfz` directory.
 2. Check out a `dev` branch and push it to `origin`.
