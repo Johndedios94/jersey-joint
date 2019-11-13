@@ -1,4 +1,5 @@
 import React from 'react';
+import { Col, Row, Button, Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
 
 class Checkoutform extends React.Component {
   constructor(props) {
@@ -23,19 +24,41 @@ class Checkoutform extends React.Component {
   }
 
   handleChange(event) {
-    event.preventDefault();
-    var ccvalidation = document.getElementById('ccvalidation');
+    var letterRegex = RegExp(
+      /^[A-Za-z]{2,}$/
+    );
+    var ccRegex = RegExp(
+      /^[0-9]{16,}$/
+    );
+    var addressRegex = RegExp(
+      /^[A-Za-z0-9,. ]{15,}$/
+    );
+    var currentInput = event.target.value;
+    var ccValidation = document.getElementById('ccValidation');
+    var nameValidation = document.getElementById('nameValidation');
+    var addressValidation = document.getElementById('addressValidation');
     if (event.currentTarget.id === 'name') {
-      this.setState({ name: event.target.value });
-    } else if (event.currentTarget.id === 'creditcard') {
-      this.setState({ creditcard: event.target.value });
-      if (this.state.creditcard.length >= 15) {
-        ccvalidation.innerHTML = 'Valid!';
+      if (letterRegex.test(currentInput)) {
+        this.setState({ name: currentInput });
+        nameValidation.innerHTML = 'Valid!';
       } else {
-        ccvalidation.innerHTML = 'Must be a valid 16 digit credit card number.';
+        nameValidation.innerHTML = 'Please enter a valid name';
+      }
+    } else if (event.currentTarget.id === 'creditcard') {
+      if (ccRegex.test(currentInput)) {
+        this.setState({ creditcard: currentInput });
+        ccValidation.innerHTML = 'Valid!';
+        onkeydown = 'return false';
+      } else {
+        ccValidation.innerHTML = 'Must be a valid 16 digit credit card number.';
       }
     } else if (event.currentTarget.id === 'address') {
-      this.setState({ address: event.target.value });
+      if (addressRegex.test(currentInput)) {
+        this.setState({ address: event.target.value });
+        addressValidation.innerHTML = 'Valid!';
+      } else {
+        addressValidation.innerHTML = 'Please enter a valid address';
+      }
     }
   }
 
@@ -71,17 +94,19 @@ class Checkoutform extends React.Component {
             <div className="form-group">
               <label htmlFor="exampleInputEmail1">Name</label>
               <input type="name" className="form-control form" id="name" placeholder="Enter Name" onChange={this.handleChange} />
+              <label style={{ 'color': 'blue' }} id="nameValidation" htmlFor="namevalidation"></label>
             </div>
             <div className="form-group">
               <label htmlFor="exampleInputPassword1">Credit Card</label>
-              <input type="text" className="form-control form" id="creditcard" placeholder="Enter Credit Card Number" onChange={this.handleChange} />
-              <label style={{ 'color': 'blue' }} id="ccvalidation" htmlFor="exampleInputEmail1">Must be a valid 16 digit credit card number.</label>
+              <input maxLength="16" type="text" className="form-control form" id="creditcard" placeholder="Enter Credit Card Number" onChange={this.handleChange} />
+              <label style={{ 'color': 'blue' }} id="ccValidation"></label>
             </div>
             <div className="form-group">
               <label htmlFor="exampleInputPassword1">Shipping Address</label>
               <input type="text" className="form-control form" id="address" aria-describedby="emailHelp" placeholder="Enter Shipping Address" onChange={this.handleChange} />
+              <label style={{ 'color': 'blue' }} id="addressValidation"></label>
             </div>
-            <label id="error"></label>
+            <label style={{ 'color': 'blue' }}id="error"></label>
           </form>
           <button onClick={() => { this.validInputCheck(); }} type="button" className="placeOrder mx-auto" >Place Order</button>
         </div>
