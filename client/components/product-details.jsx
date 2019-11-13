@@ -84,7 +84,7 @@ class ProductDetails extends React.Component {
                     <button onClick={this.toggleQuantity} id='add' type="button" className="operator">+</button>
                   </div>
                   <button className="addbutton mt-4" onClick={() => { this.props.addToCart(this.state.product, this.counter); this.toggle(); }} >Add to Cart</button>
-                  <p className="mt-4" style={{ 'font-size': '1.5em' }}>{this.state.product[0].longDescription}</p>
+                  <p className="mt-4 longDesc">{this.state.product[0].longDescription}</p>
                 </div>
               </div>
             </div>

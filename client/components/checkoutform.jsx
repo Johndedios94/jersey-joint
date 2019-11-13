@@ -1,5 +1,4 @@
 import React from 'react';
-import { Col, Row, Button, Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
 
 class Checkoutform extends React.Component {
   constructor(props) {
@@ -12,6 +11,7 @@ class Checkoutform extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.validInputsCheck = this.validInputCheck.bind(this);
+    this.valid = false;
   }
 
   totalprice() {
@@ -25,7 +25,7 @@ class Checkoutform extends React.Component {
 
   handleChange(event) {
     var letterRegex = RegExp(
-      /^[A-Za-z]{2,}$/
+      /^[a-zA-Z]+\s?[a-zA-Z .]{1,}$/
     );
     var ccRegex = RegExp(
       /^[0-9]{16,}$/
@@ -41,23 +41,28 @@ class Checkoutform extends React.Component {
       if (letterRegex.test(currentInput)) {
         this.setState({ name: currentInput });
         nameValidation.innerHTML = 'Valid!';
+        this.valid = true;
       } else {
         nameValidation.innerHTML = 'Please enter a valid name';
+        this.valid = false;
       }
     } else if (event.currentTarget.id === 'creditcard') {
       if (ccRegex.test(currentInput)) {
         this.setState({ creditcard: currentInput });
         ccValidation.innerHTML = 'Valid!';
-        onkeydown = 'return false';
+        this.valid = true;
       } else {
         ccValidation.innerHTML = 'Must be a valid 16 digit credit card number.';
+        this.valid = false;
       }
     } else if (event.currentTarget.id === 'address') {
       if (addressRegex.test(currentInput)) {
         this.setState({ address: event.target.value });
         addressValidation.innerHTML = 'Valid!';
+        this.valid = true;
       } else {
         addressValidation.innerHTML = 'Please enter a valid address';
+        this.valid = false;
       }
     }
   }
@@ -75,7 +80,7 @@ class Checkoutform extends React.Component {
 
   validInputCheck() {
     var error = document.getElementById('error');
-    if (this.state.name && this.state.creditcard && this.state.address) {
+    if (this.valid) {
       this.props.setView('cartConfirmation', {});
       this.props.deleteCart(this.props.cartItems);
     } else {

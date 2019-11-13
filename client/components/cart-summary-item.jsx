@@ -41,7 +41,7 @@ class CartSummaryItem extends React.Component {
             <ModalHeader toggle={this.toggle}>Cart updated!</ModalHeader>
           </Modal>
         </div>
-        <div className="card my-2 p-4 cartSummaryContainer"  >
+        <div className="card my-2 p-4 cartSummaryContainer" style={{ 'maxWidth': '1240px' }} >
           <div className="row no-gutters">
             <div className="col-lg-4 col-md-7 col-sm-4">
               <img src={this.props.image} className="card-img" alt="..." />
