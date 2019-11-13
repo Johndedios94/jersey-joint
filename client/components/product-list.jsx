@@ -23,6 +23,7 @@ class ProductList extends React.Component {
     const product = this.state.products.map(item => {
       return (
         <ProductListItem
+          key={item}
           id={item.id}
           name={item.name}
           price={item.price}

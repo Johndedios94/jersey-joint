@@ -21,6 +21,7 @@ class CartSummary extends React.Component {
     const cartItem = this.props.cartItems.map(item => {
       return (
         <CartSummaryItem
+          key = {item}
           deleteItem={this.props.deleteItem}
           updateCart={this.props.updateCart}
           count={item.count}
@@ -53,7 +54,7 @@ class CartSummary extends React.Component {
             </div>
             <div className="itemCheckout">
               <button className="button" onClick={() => {
-                this.props.setView('checkout', {}); this.props.cartConfirmation(this.props.cartItems);// test
+                this.props.setView('checkout', {}); this.props.cartConfirmation(this.props.cartItems);
               }}>Checkout</button>
             </div>
           </div>
