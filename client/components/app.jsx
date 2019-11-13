@@ -5,7 +5,7 @@ import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import Checkoutform from './checkoutform';
 import Jumbotron from './Jumbotron';
-import Topproduct from './top-product';
+import CustomerReview from './customer-review';
 import CartConfirmation from './cart-confirmation';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
@@ -104,8 +104,6 @@ export default class App extends React.Component {
     })
       .then(response => response.json()));
     Promise.allSettled(cartAdd).then(this.getCartItems);
-    console.log('added and got');
-
   }
 
   getCartItems() {
@@ -157,7 +155,7 @@ export default class App extends React.Component {
           </div>
           <Jumbotron />
           <Header cartItemCount={this.state.cart} setView={this.setView} />
-          <Topproduct />
+          <CustomerReview />
           <ProductList setView={this.setView} />
         </div>
       );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Topproduct extends React.Component {
+class CustomerReview extends React.Component {
   render() {
     return (
       <div className="row no-gutters" style={{ 'border-bottom': '2px solid black' }}>
@@ -22,4 +22,4 @@ class Topproduct extends React.Component {
   }
 }
 
-export default Topproduct;
+export default CustomerReview;
