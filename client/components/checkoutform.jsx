@@ -11,7 +11,10 @@ class Checkoutform extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.validInputsCheck = this.validInputCheck.bind(this);
-    this.valid = false;
+    this.name = false;
+    this.address = false;
+    this.cc = false;
+    // this.valid = false;
   }
 
   totalprice() {
@@ -41,28 +44,28 @@ class Checkoutform extends React.Component {
       if (letterRegex.test(currentInput)) {
         this.setState({ name: currentInput });
         nameValidation.innerHTML = 'Valid!';
-        this.valid = true;
+        this.name = true;
       } else {
         nameValidation.innerHTML = 'Please enter a valid name';
-        this.valid = false;
+        this.name = false;
       }
     } else if (event.currentTarget.id === 'creditcard') {
       if (ccRegex.test(currentInput)) {
         this.setState({ creditcard: currentInput });
         ccValidation.innerHTML = 'Valid!';
-        this.valid = true;
+        this.cc = true;
       } else {
         ccValidation.innerHTML = 'Must be a valid 16 digit credit card number.';
-        this.valid = false;
+        this.cc = false;
       }
     } else if (event.currentTarget.id === 'address') {
       if (addressRegex.test(currentInput)) {
         this.setState({ address: event.target.value });
         addressValidation.innerHTML = 'Valid!';
-        this.valid = true;
+        this.address = true;
       } else {
         addressValidation.innerHTML = 'Please enter a valid address';
-        this.valid = false;
+        this.address = false;
       }
     }
   }
@@ -80,7 +83,7 @@ class Checkoutform extends React.Component {
 
   validInputCheck() {
     var error = document.getElementById('error');
-    if (this.valid) {
+    if (this.name && this.cc && this.address) {
       this.props.setView('cartConfirmation', {});
       this.props.deleteCart(this.props.cartItems);
     } else {
