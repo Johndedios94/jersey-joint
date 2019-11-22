@@ -156,7 +156,7 @@ export default class App extends React.Component {
           <Jumbotron />
           <Header cartItemCount={this.state.cart} setView={this.setView} />
           <CustomerReview />
-          <ProductList setView={this.setView} />
+          <ProductList id="productList" setView={this.setView} />
         </div>
       );
     } else if (this.state.view.name === 'details') {
