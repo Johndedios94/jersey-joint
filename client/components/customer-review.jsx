@@ -3,7 +3,7 @@ import React from 'react';
 class CustomerReview extends React.Component {
   render() {
     return (
-      <div className="row no-gutters" style={{ 'border-bottom': '2px solid black' }}>
+      <div id="productSection" className="row no-gutters" style={{ 'borderBottom': '2px solid black' }}>
         <div className="col-sm-6 col-12" >
           <img className="img-fluid" src="/images/drake.jpg" alt=""/>
         </div>
