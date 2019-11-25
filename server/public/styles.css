@@ -4,8 +4,12 @@
    background-size: cover;
    background-position: center;
    min-height: 100vh;
-   padding-bottom: 15px;
+   padding-bottom: 14px;
    overflow: hidden;
+}
+
+html{
+  scroll-behavior: smooth;
 }
 
 body{
@@ -35,7 +39,7 @@ body{
   text-indent: 3%;
 }
 
-.jumbotron{
+.jumbotron {
   background-image: url("./images/jerseyjointbg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -46,11 +50,19 @@ body{
   color: rgb(199, 197, 197);
 }
 
-.jumbotronText{
+a{
+  color: white;
+  text-shadow: 2px 2px black;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.5rem;
+}
+.jumbotronText {
   font-family: Brush Script MT, Brush Script Std, cursive;
   text-decoration: underline;
   font-size: 7rem;
 }
+
+
 .cartItems{
    margin: auto;
 }
@@ -182,10 +194,14 @@ body{
 
 }
 
-.detailsContainer, .cartSummaryContainer, .cartConfirmationContainer{
+.detailsContainer, .cartSummaryContainer, .cartConfirmationContainer, .formContainer{
   margin: auto;
   width: 85%;
   border: 2px solid black;
+}
+
+.formContainer{
+  padding-bottom: 10px;
 }
 
 .cartConfirmationContainer{
