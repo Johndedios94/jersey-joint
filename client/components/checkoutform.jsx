@@ -14,7 +14,6 @@ class Checkoutform extends React.Component {
     this.name = false;
     this.address = false;
     this.cc = false;
-    // this.valid = false;
   }
 
   totalprice() {
@@ -28,13 +27,13 @@ class Checkoutform extends React.Component {
 
   handleChange(event) {
     var letterRegex = RegExp(
-      /^[a-zA-Z]+\s?[a-zA-Z .]{1,}$/
+      /^[a-zA-Z]+\s?[a-zA-Z .]{0,}$/
     );
     var ccRegex = RegExp(
       /^[0-9]{16,}$/
     );
     var addressRegex = RegExp(
-      /^[A-Za-z0-9,. ]{15,}$/
+      /^[A-Za-z0-9,. ]{10,}$/
     );
     var currentInput = event.target.value;
     var ccValidation = document.getElementById('ccValidation');
@@ -46,7 +45,7 @@ class Checkoutform extends React.Component {
         nameValidation.innerHTML = 'Valid!';
         this.name = true;
       } else {
-        nameValidation.innerHTML = 'Please enter a valid name';
+        nameValidation.innerHTML = 'Please enter a valid name, letters only';
         this.name = false;
       }
     } else if (event.currentTarget.id === 'creditcard') {
@@ -96,7 +95,7 @@ class Checkoutform extends React.Component {
       <div className="background">
         <div onClick={() => { this.props.setView('catalog', {}); }} className="mt-0 catalogButton" >
           Back to Catalog</div>
-        <div className="card mx-auto col-5 detailsContainer " style={{ 'maxWidth': '940px' }}>
+        <div className="card mx-auto col-5 formContainer " style={{ 'maxWidth': '940px' }}>
           <h5>Item total: ${this.totalprice()}</h5>
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
