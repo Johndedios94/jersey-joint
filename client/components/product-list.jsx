@@ -23,7 +23,7 @@ class ProductList extends React.Component {
     const product = this.state.products.map(item => {
       return (
         <ProductListItem
-          key={item}
+          key={item.id}
           id={item.id}
           name={item.name}
           price={item.price}
@@ -35,8 +35,8 @@ class ProductList extends React.Component {
       );
     });
     return (
-      <div className="row" >
-        {product}
+      <div className="row">
+        <div className="row"> {product}</div>
       </div>);
   }
 }
