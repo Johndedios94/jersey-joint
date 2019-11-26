@@ -36,7 +36,7 @@ class ProductList extends React.Component {
     });
     return (
       <div className="row">
-        <div className="row"> {product}</div>
+        {product}
       </div>);
   }
 }
