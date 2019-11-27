@@ -14,7 +14,7 @@ Disclaimer: This site is for demonstration purposes only, no real products are s
 
 
 ## Live Demo
-Try the application live at [jerseyjoint.johndedios.net](http://jerseyjoint.johndedios.net)
+Try the application live at [jerseyjoint.johndedios.net](https://jerseyjoint.johndedios.net)
 
 ## Preview
 ![jerseyJoint](/server/public/images/portfolioJerseyJointgif.gif)
