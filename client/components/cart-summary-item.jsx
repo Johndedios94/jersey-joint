@@ -67,7 +67,7 @@ class CartSummaryItem extends React.Component {
             <div className="col-lg-8 col-md-12 col-sm-8">
               <div className="detailsInfo">
                 <h5 className="card-title name">{this.props.shortDescription}</h5>
-                <p className="card-text ">${(this.props.price / 100).toFixed(2)}</p>
+                <p className="card-text price">${(this.props.price / 100).toFixed(2)}</p>
                 <div>
                   <button onClick={this.toggleQuantity} id='subtract' type="button" className="operator">-</button>
                   <div id="amount"> {this.state.count}</div>
